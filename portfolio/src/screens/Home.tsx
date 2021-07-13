@@ -1,22 +1,61 @@
-import { Flex, Spacer, Stack, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { Center, Divider, Flex, Spacer, Stack, Text } from "@chakra-ui/react";
+import { useRef, useState } from "react";
 import { theme } from "../assets/theme";
+import { ItemSquare } from "../components/ItemSquare";
+import { RoundIcon } from "../components/RoundIcon";
 import { TopBar } from "../components/TopBar";
+
+import linkedinIcon from "./../assets/icons/linkedin.png";
+import switchIcon from "./../assets/icons/switch.png";
 
 export const Home: React.FC = () => {
   return (
     <Stack
       w={"100vw"}
-      h={"100vh"}
+      h={"100%"}
+      minW={"1000px"}
+      minH={"100vh"}
+      maxW={"100vw"}
       bg={theme.colors.backgroundHome}
-      overflow={"hidden"}
       padding={"1rem"}
     >
-      <Flex h={"10%"}>
+      <Flex h={"10%"} marginBottom={"5%"}>
         <TopBar />
       </Flex>
 
-      <Flex></Flex>
+      <Stack
+        height={"35%"}
+        width={"100%"}
+        direction={"row"}
+        spacing={"1rem"}
+        justifyContent={"center"}
+      >
+        <ItemSquare style={{}} />
+        <ItemSquare style={{}} />
+        <ItemSquare style={{}} />
+        <ItemSquare style={{}} />
+      </Stack>
+      <Stack
+        height={"25%"}
+        width={"100%"}
+        direction={"row"}
+        spacing={"2rem"}
+        justifyContent={"center"}
+        paddingTop={"4%"}
+      >
+        <RoundIcon image={linkedinIcon} variant={"bottomBar"} />
+        <RoundIcon image={linkedinIcon} variant={"bottomBar"} />
+        <RoundIcon image={linkedinIcon} variant={"bottomBar"} />
+        <RoundIcon image={linkedinIcon} variant={"bottomBar"} />
+      </Stack>
+      <Center paddingTop={"2rem"} paddingBottom={"2rem"}>
+        <Flex h={"0.1rem"} w={"95%"} bg={theme.colors.lightGrey}></Flex>
+      </Center>
+      <Flex paddingLeft={"3rem"}>
+        <Center w={"10%"}>
+          <img style={{ width: "7rem" }} src={switchIcon} />
+        </Center>
+      </Flex>
     </Stack>
   );
 };
