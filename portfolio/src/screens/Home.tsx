@@ -1,8 +1,8 @@
 import { Center, Divider, Flex, Spacer, Stack, Text } from "@chakra-ui/react";
-import { useRef, useState } from "react";
 import { theme } from "../assets/theme";
 import { ItemSquare } from "../components/ItemSquare";
 import { RoundIcon } from "../components/RoundIcon";
+import { ScrollableContainer } from "../components/ScrollableContainer";
 import { TopBar } from "../components/TopBar";
 
 import linkedinIcon from "./../assets/icons/linkedin.png";
@@ -23,18 +23,20 @@ export const Home: React.FC = () => {
         <TopBar />
       </Flex>
 
-      <Stack
-        height={"35%"}
-        width={"100%"}
-        direction={"row"}
-        spacing={"1rem"}
-        justifyContent={"center"}
-      >
-        <ItemSquare style={{}} />
-        <ItemSquare style={{}} />
-        <ItemSquare style={{}} />
-        <ItemSquare style={{}} />
-      </Stack>
+      <ScrollableContainer>
+        <ItemSquare image={""} style={{}} />
+        <ItemSquare image={""} style={{}} />
+        <ItemSquare image={""} style={{}} />
+        <ItemSquare image={""} style={{}} />
+        <ItemSquare image={""} style={{}} />
+        <ItemSquare image={""} style={{}} />
+        <ItemSquare image={""} style={{}} />
+        <ItemSquare image={""} style={{}} />
+        <ItemSquare image={""} style={{}} />
+        <ItemSquare image={""} style={{}} />
+        <ItemSquare image={""} style={{}} />
+        <ItemSquare image={""} style={{}} />
+      </ScrollableContainer>
       <Stack
         height={"25%"}
         width={"100%"}
