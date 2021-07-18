@@ -30,7 +30,14 @@ export const TopBar: React.FC = () => {
       paddingLeft={"3rem"}
       paddingRight={"3rem"}
     >
-      <RoundIcon image={icon} variant={"simpleBorder"} />
+      <RoundIcon
+        image={icon}
+        variant={"simpleBorder"}
+        width={"5.5rem"}
+        height={"5.5rem"}
+        imgWidth={"5.5rem"}
+        imgHeight={"5.5rem"}
+      />
       <Text fontSize={"3xl"} color={"white"} paddingLeft={"1rem"}>
         Federico Cattini
       </Text>

@@ -3,20 +3,38 @@ import styled from "styled-components";
 type Props = {
   image: any;
   variant: "simpleBorder" | "bottomBar" | "bottomBarSelected";
-  //   size: {
-  //       height: number;
-  //       width: number;
-  //   }
+  height?: string;
+  width?: string;
+  imgHeight?: string;
+  imgWidth?: string;
 };
 
 export const RoundIcon: React.FC<Props> = (props) => {
   let color = "#4b4853";
+  let width = "5.5rem";
+  let height = "5.5rem";
+  let imgWidth = "5.5rem";
+  let imgHeight = "5.5rem";
+  if (props.height) height = props.height;
+  if (props.width) width = props.width;
+  if (props.imgHeight) imgHeight = props.imgHeight;
+  if (props.imgWidth) imgWidth = props.imgWidth;
   if (props.variant === "bottomBarSelected") color = "blue";
   if (props.variant === "simpleBorder")
     return (
       <StyledSpan>
-        <StyledFlex bg={color}>
-          <StyledImgSimpleBorder src={props.image} />
+        <StyledFlex
+          bg={color}
+          w={width}
+          h={height}
+          style={{ minWidth: width, minHeight: height }}
+        >
+          <StyledImgSimpleBorder
+            src={props.image}
+            width={width}
+            height={height}
+            style={{ minWidth: width, minHeight: height }}
+          />
         </StyledFlex>
       </StyledSpan>
     );
@@ -32,10 +50,6 @@ export const RoundIcon: React.FC<Props> = (props) => {
 };
 
 const StyledImgSimpleBorder = styled.img`
-  width: 5.5rem;
-  height: 5.5rem;
-  min-width: 5.5rem;
-  min-height: 5.5rem;
   clip-path: circle(46%);
 `;
 
@@ -50,10 +64,6 @@ const StyledFlex = styled(Flex)`
   padding: 1rem;
   justify-content: center;
   align-items: center;
-  width: 5.5rem;
-  height: 5.5rem;
-  min-width: 5.5rem;
-  min-height: 5.5rem;
   clip-path: circle(50%);
 `;
 

@@ -25,8 +25,8 @@ export const ScrollableContainer: React.FC<Props> = (props) => {
       onWheel={(evt) => {
         if (ref.current) {
           if (evt.deltaY > 0)
-            ref.current.scrollLeft += (evt.deltaY / evt.deltaY) * 15;
-          else ref.current.scrollLeft -= (evt.deltaY / evt.deltaY) * 15;
+            ref.current.scrollLeft += (evt.deltaY / evt.deltaY) * 20;
+          else ref.current.scrollLeft -= (evt.deltaY / evt.deltaY) * 20;
         }
       }}
       onMouseDown={(e) => {
@@ -54,8 +54,7 @@ export const ScrollableContainer: React.FC<Props> = (props) => {
     >
       <Flex w={"5%"} />
       <StyledStack
-        height={"35%"}
-        maxWidth={"95vw"}
+        maxWidth={"98.5vw"}
         direction={"row"}
         spacing={"1rem"}
         ref={ref}
