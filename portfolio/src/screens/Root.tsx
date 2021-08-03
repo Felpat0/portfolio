@@ -11,6 +11,7 @@ import { Home } from "./Home";
 
 import theme from "../ChakraUI/theme";
 import Fonts from "../components/Fonts";
+import { Projects } from "./Projects";
 
 export const Root: React.FC = () => {
   const [stores] = useState<Stores>(() => {
@@ -27,6 +28,7 @@ export const Root: React.FC = () => {
         <Fonts />
         <Router>
           <Route exact path={"/"} component={Home} />
+          <Route exact path={"/projects"} component={Projects} />
         </Router>
       </ChakraProvider>
     </StoresContext.Provider>

@@ -29,6 +29,7 @@ export const TopBar: React.FC = () => {
       alignItems={"center"}
       paddingLeft={"3rem"}
       paddingRight={"3rem"}
+      paddingTop={"1rem"}
     >
       <RoundIcon
         image={icon}

@@ -22,6 +22,8 @@ export const ScrollableContainer: React.FC<Props> = (props) => {
   return (
     <Flex
       flexDirection={"row"}
+      w={"100%"}
+      h={"100%"}
       onWheel={(evt) => {
         if (ref.current) {
           if (evt.deltaY > 0)
@@ -52,11 +54,11 @@ export const ScrollableContainer: React.FC<Props> = (props) => {
         setIsMouseDown(false);
       }}
     >
-      <Flex w={"5%"} />
       <StyledStack
-        maxWidth={"98.5vw"}
+        maxW={"94%"}
         direction={"row"}
         spacing={"1rem"}
+        marginLeft={"5%"}
         ref={ref}
       >
         {props.children}
@@ -67,6 +69,8 @@ export const ScrollableContainer: React.FC<Props> = (props) => {
 
 const StyledStack = styled(Stack)`
   overflow-x: scroll;
+  width: 100%;
+  height: 100%;
   &::-webkit-scrollbar {
     display: none;
   }
