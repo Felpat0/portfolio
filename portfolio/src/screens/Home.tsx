@@ -14,12 +14,27 @@ import rivenIcon from "./../assets/icons/riven.jpg";
 import infoIcon from "./../assets/icons/info.png";
 
 import { Loading } from "../components/Loading";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MostazaOverlay } from "../components/overlays/MostazaOverlay";
 
 export const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [mostazaOverlayDisplay, setMostazaOverlayDisplay] = useState("none");
+  const [width, setWidth] = useState(
+    window.innerWidth > 0 ? window.innerWidth : window.screen.width
+  );
+  const [height, setHeight] = useState(
+    window.innerHeight > 0 ? window.innerHeight : window.screen.height
+  );
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWidth(window.innerWidth > 0 ? window.innerWidth : window.screen.width);
+      setHeight(
+        window.innerHeight > 0 ? window.innerHeight : window.screen.height
+      );
+    });
+  }, []);
 
   const toggleMostazaOverlay = useCallback(() => {
     if (mostazaOverlayDisplay == "block") setMostazaOverlayDisplay("none");
@@ -41,7 +56,7 @@ export const Home: React.FC = () => {
       overflow={"hidden"}
     >
       <Flex h={"10vh"} paddingTop={"2vh"}>
-        <TopBar />
+        <TopBar height={height} width={width} />
         <MostazaOverlay
           display={mostazaOverlayDisplay}
           toggleDisplay={toggleMostazaOverlay}
@@ -50,7 +65,7 @@ export const Home: React.FC = () => {
           subtitle={"Currently working | Full Stack Engineer"}
         />
       </Flex>
-      <Flex h={"60vh"} w={"100%"} paddingTop={"3vh"}>
+      <Flex h={"60vh"} w={"100%"} paddingTop={width <= 557 ? "0vh" : "3vh"}>
         <ScrollableContainer>
           <ItemSquare
             image={mostazaSquare}
@@ -60,17 +75,19 @@ export const Home: React.FC = () => {
             workingImage={rivenIcon}
             selected={true}
             onClick={() => setMostazaOverlayDisplay("block")}
+            height={height}
+            width={width}
           />
-          <ItemSquare />
-          <ItemSquare />
-          <ItemSquare />
-          <ItemSquare />
-          <ItemSquare />
-          <ItemSquare />
-          <ItemSquare />
-          <ItemSquare />
-          <ItemSquare />
-          <ItemSquare />
+          <ItemSquare height={height} width={width} />
+          <ItemSquare height={height} width={width} />
+          <ItemSquare height={height} width={width} />
+          <ItemSquare height={height} width={width} />
+          <ItemSquare height={height} width={width} />
+          <ItemSquare height={height} width={width} />
+          <ItemSquare height={height} width={width} />
+          <ItemSquare height={height} width={width} />
+          <ItemSquare height={height} width={width} />
+          <ItemSquare height={height} width={width} />
         </ScrollableContainer>
       </Flex>
       <Stack
@@ -83,45 +100,48 @@ export const Home: React.FC = () => {
         <RoundIcon
           image={linkedinIcon}
           variant={"bottomBar"}
-          width={"11.5vh"}
-          height={"11.5vh"}
-          imgHeight={"7vh"}
-          imgWidth={"7vh"}
+          width={width <= 557 ? "20vw" : "11.5vh"}
+          height={width <= 557 ? "20vw" : "11.5vh"}
+          imgHeight={width <= 557 ? "11vw" : "7vh"}
+          imgWidth={width <= 557 ? "11vw" : "7vh"}
           href={"https://www.linkedin.com/in/federicocattini/"}
         />
         <RoundIcon
           image={githubIcon}
           variant={"bottomBar"}
-          width={"11.5vh"}
-          height={"11.5vh"}
-          imgHeight={"9vh"}
-          imgWidth={"9vh"}
+          width={width <= 557 ? "20vw" : "11.5vh"}
+          height={width <= 557 ? "20vw" : "11.5vh"}
+          imgHeight={width <= 557 ? "15vw" : "9vh"}
+          imgWidth={width <= 557 ? "15vw" : "9vh"}
           href={"https://github.com/Felpat0"}
         />
         <RoundIcon
           image={mailIcon}
           variant={"bottomBar"}
-          width={"11.5vh"}
-          height={"11.5vh"}
-          imgHeight={"8vh"}
-          imgWidth={"8vh"}
+          width={width <= 557 ? "20vw" : "11.5vh"}
+          height={width <= 557 ? "20vw" : "11.5vh"}
+          imgHeight={width <= 557 ? "15vw" : "8vh"}
+          imgWidth={width <= 557 ? "15vw" : "8vh"}
           href={"mailto: federico.cattini98@gmail.com"}
         />
         <RoundIcon
           image={infoIcon}
           variant={"bottomBar"}
-          width={"11.5vh"}
-          height={"11.5vh"}
-          imgHeight={"10vh"}
-          imgWidth={"10vh"}
+          width={width <= 557 ? "20vw" : "11.5vh"}
+          height={width <= 557 ? "20vw" : "11.5vh"}
+          imgHeight={width <= 557 ? "15vw" : "10vh"}
+          imgWidth={width <= 557 ? "15vw" : "10vh"}
         />
       </Stack>
       <Center h={"4vh"}>
         <Flex h={"0.1rem"} w={"95%"} bg={theme.colors.lightGrey}></Flex>
       </Center>
-      <Flex h={"8vh"}>
-        <Center w={"10%"}>
-          <img style={{ width: "13vh" }} src={switchIcon} />
+      <Flex h={"100%"}>
+        <Center w={width <= 557 ? "100%" : "10%"}>
+          <img
+            style={{ width: width <= 557 ? "25%" : "13vh" }}
+            src={switchIcon}
+          />
         </Center>
       </Flex>
     </Stack>

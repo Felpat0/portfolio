@@ -1,13 +1,31 @@
 import { Flex, Spacer, Text } from "@chakra-ui/react";
 import { RoundIcon } from "./RoundIcon";
 import icon from "./../assets/icons/riven.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import batteryIcon from "./../assets/icons/battery.png";
 import wifiIcon from "./../assets/icons/wifi.png";
 import styled from "styled-components";
 
-export const TopBar: React.FC = () => {
+type Props = {
+  height: any;
+  width: any;
+};
+
+export const TopBar: React.FC<Props> = (props) => {
+  let iconSize = "10vh";
+  let wifiSize = "3.5rem";
+  let batterySize = "4rem";
+  let fontSize = "3xl";
+  let percentageDisplay = true;
+  if (props.width <= 557) {
+    iconSize = "3rem";
+    fontSize = "lg";
+    wifiSize = "2.2rem";
+    batterySize = "2.2rem";
+    percentageDisplay = false;
+  }
+
   const dateOptions = {
     hour: "2-digit",
     minute: "2-digit",
@@ -27,43 +45,51 @@ export const TopBar: React.FC = () => {
       h={"100%"}
       w={"100%"}
       alignItems={"center"}
-      paddingLeft={"3rem"}
-      paddingRight={"3rem"}
-      paddingTop={"1rem"}
+      paddingLeft={"3vw"}
+      paddingRight={"3vw"}
+      paddingTop={"1vh"}
     >
       <RoundIcon
         image={icon}
         variant={"simpleBorder"}
-        width={"5.5rem"}
-        height={"5.5rem"}
-        imgWidth={"5.5rem"}
-        imgHeight={"5.5rem"}
+        width={iconSize}
+        height={iconSize}
+        imgWidth={iconSize}
+        imgHeight={iconSize}
       />
-      <Text fontSize={"3xl"} color={"white"} paddingLeft={"1rem"}>
+      <Text fontSize={fontSize} color={"white"} paddingLeft={"2vw"}>
         Federico Cattini
       </Text>
       <Spacer />
-      <Text fontSize={"3xl"} color={"white"} paddingRight={"1.5rem"}>
+      <Text fontSize={fontSize} color={"white"} paddingRight={"1.5vw"}>
         {date}
       </Text>
-      <StyledImg src={wifiIcon} style={{ marginRight: "1.5rem" }} />
-      <Text fontSize={"3xl"} color={"white"}>
-        {"100"}
-      </Text>
-      <Text
-        fontSize={"xl"}
-        fontWeight={"bold"}
-        color={"white"}
-        paddingRight={"0.6rem"}
-      >
-        {"%"}
-      </Text>
-      <StyledImg src={batteryIcon} style={{ width: "4rem", height: "4rem" }} />
+      <img
+        src={wifiIcon}
+        style={{ marginRight: "1.5vw", width: wifiSize, height: wifiSize }}
+      />
+      {percentageDisplay ? (
+        <>
+          <Text fontSize={fontSize} color={"white"}>
+            {"100"}
+          </Text>
+          <Text
+            fontSize={fontSize}
+            fontWeight={"bold"}
+            color={"white"}
+            paddingRight={"0.6rem"}
+          >
+            {"%"}
+          </Text>
+        </>
+      ) : (
+        <></>
+      )}
+
+      <img
+        src={batteryIcon}
+        style={{ width: batterySize, height: batterySize }}
+      />
     </Flex>
   );
 };
-
-const StyledImg = styled.img`
-  width: 3rem;
-  height: 3rem;
-`;

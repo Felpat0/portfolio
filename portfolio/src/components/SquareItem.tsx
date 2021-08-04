@@ -13,10 +13,18 @@ type Props = {
   selected?: boolean;
   onClick?: any;
   text?: string;
+  height?: any;
+  width?: any;
 };
 
 export const ItemSquare: React.FC<Props> = (props) => {
   const [opacity, setOpacity] = useState(0);
+
+  let size = "45vh";
+
+  if (props.width <= 557) {
+    size = "45vh";
+  }
 
   let backgroundColor = "rgba(250, 250, 250, 0.015)";
   let textVisibility = "hidden";
@@ -44,11 +52,11 @@ export const ItemSquare: React.FC<Props> = (props) => {
           onClick={props.onClick}
         >
           <StyledFlexNoImage
-            w={"45vh"}
-            h={"45vh"}
-            minW={"45vh"}
+            w={size}
+            h={size}
+            minW={size}
+            minH={size}
             style={props.style}
-            bg={backgroundColor}
           ></StyledFlexNoImage>
         </Flex>
       </Stack>
@@ -74,14 +82,23 @@ export const ItemSquare: React.FC<Props> = (props) => {
         >
           <StyledFlexWithImage>
             <Flex bg={backgroundColor}>
-              <StyledImg src={props.image} />
-              <Flex marginRight={"-45vh"} w={"45vh"} h={"45vh"}>
+              <img
+                style={{
+                  width: size,
+                  minWidth: size,
+                  height: size,
+                  minHeight: size,
+                  clipPath: "square(100%)",
+                }}
+                src={props.image}
+              />
+              <Flex marginRight={"-" + size} w={size} h={size}>
                 <Center
                   h={"100%"}
                   w={"100%"}
                   flexDirection={"column"}
                   paddingBottom={"2vw"}
-                  marginLeft={"-45vh"}
+                  marginLeft={"-" + size}
                 >
                   <Spacer />
 
@@ -127,7 +144,16 @@ export const ItemSquare: React.FC<Props> = (props) => {
         >
           <StyledFlexWithImage>
             <Flex bg={backgroundColor}>
-              <StyledImg src={props.image} />
+              <img
+                style={{
+                  width: size,
+                  minWidth: size,
+                  height: size,
+                  minHeight: size,
+                  clipPath: "square(100%)",
+                }}
+                src={props.image}
+              />
             </Flex>
           </StyledFlexWithImage>
         </Flex>
@@ -156,12 +182,4 @@ const WorkingFlex = styled(Flex)`
   border: 2px solid rgba(255, 255, 255, 0.7);
   color: white;
   background-color: rgba(0, 0, 0, 0.2);
-`;
-
-const StyledImg = styled.img`
-  width: 45vh;
-  height: 45vh;
-  min-width: 45vh;
-  min-height: 45vh;
-  clip-path: square(100%);
 `;
