@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.b8c321ea.chunk.css",
+    "main.js": "/portfolio/static/js/main.15a17039.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.15a17039.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.b6083fe2.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.b6083fe2.js.map",
+    "static/js/2.8a2e2a77.chunk.js": "/portfolio/static/js/2.8a2e2a77.chunk.js",
+    "static/js/2.8a2e2a77.chunk.js.map": "/portfolio/static/js/2.8a2e2a77.chunk.js.map",
+    "static/js/3.eb5af6a0.chunk.js": "/portfolio/static/js/3.eb5af6a0.chunk.js",
+    "static/js/3.eb5af6a0.chunk.js.map": "/portfolio/static/js/3.eb5af6a0.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "static/css/main.b8c321ea.chunk.css.map": "/portfolio/static/css/main.b8c321ea.chunk.css.map",
+    "static/js/2.8a2e2a77.chunk.js.LICENSE.txt": "/portfolio/static/js/2.8a2e2a77.chunk.js.LICENSE.txt",
+    "static/media/bitbucket.1a6ee93d.png": "/portfolio/static/media/bitbucket.1a6ee93d.png",
+    "static/media/code.288e2a5f.png": "/portfolio/static/media/code.288e2a5f.png",
+    "static/media/docker.830d9f79.png": "/portfolio/static/media/docker.830d9f79.png",
+    "static/media/github.01b2e5ff.svg": "/portfolio/static/media/github.01b2e5ff.svg",
+    "static/media/info.4be928ae.png": "/portfolio/static/media/info.4be928ae.png",
+    "static/media/mailOrange.a6122595.svg": "/portfolio/static/media/mailOrange.a6122595.svg",
+    "static/media/mostaza.605ec26a.svg": "/portfolio/static/media/mostaza.605ec26a.svg",
+    "static/media/node.ed133d54.svg": "/portfolio/static/media/node.ed133d54.svg",
+    "static/media/prisma.8cfb0039.png": "/portfolio/static/media/prisma.8cfb0039.png",
+    "static/media/react.3adc4d15.svg": "/portfolio/static/media/react.3adc4d15.svg",
+    "static/media/riven.d4ee588c.jpg": "/portfolio/static/media/riven.d4ee588c.jpg",
+    "static/media/superbonusResized-pcMockup.e6a06ba5.png": "/portfolio/static/media/superbonusResized-pcMockup.e6a06ba5.png",
+    "static/media/superbonusResized-phoneMockup.40b6d822.png": "/portfolio/static/media/superbonusResized-phoneMockup.40b6d822.png",
+    "static/media/tools.bbebcc37.png": "/portfolio/static/media/tools.bbebcc37.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b6083fe2.js",
+    "static/js/2.8a2e2a77.chunk.js",
+    "static/css/main.b8c321ea.chunk.css",
+    "static/js/main.15a17039.chunk.js"
+  ]
+}
