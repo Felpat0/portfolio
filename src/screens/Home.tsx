@@ -59,6 +59,8 @@ export const Home: React.FC = () => {
         <TopBar height={height} width={width} />
         <MostazaOverlay
           display={mostazaOverlayDisplay}
+          screenHeight={height}
+          screenWidth={width}
           toggleDisplay={toggleMostazaOverlay}
           icon={mostazaSquare}
           title={"Mostaza"}
@@ -75,19 +77,19 @@ export const Home: React.FC = () => {
             workingImage={rivenIcon}
             selected={true}
             onClick={() => setMostazaOverlayDisplay("block")}
-            height={height}
-            width={width}
+            screenHeight={height}
+            screenWidth={width}
           />
-          <ItemSquare height={height} width={width} />
-          <ItemSquare height={height} width={width} />
-          <ItemSquare height={height} width={width} />
-          <ItemSquare height={height} width={width} />
-          <ItemSquare height={height} width={width} />
-          <ItemSquare height={height} width={width} />
-          <ItemSquare height={height} width={width} />
-          <ItemSquare height={height} width={width} />
-          <ItemSquare height={height} width={width} />
-          <ItemSquare height={height} width={width} />
+          <ItemSquare screenHeight={height} screenWidth={width} />
+          <ItemSquare screenHeight={height} screenWidth={width} />
+          <ItemSquare screenHeight={height} screenWidth={width} />
+          <ItemSquare screenHeight={height} screenWidth={width} />
+          <ItemSquare screenHeight={height} screenWidth={width} />
+          <ItemSquare screenHeight={height} screenWidth={width} />
+          <ItemSquare screenHeight={height} screenWidth={width} />
+          <ItemSquare screenHeight={height} screenWidth={width} />
+          <ItemSquare screenHeight={height} screenWidth={width} />
+          <ItemSquare screenHeight={height} screenWidth={width} />
         </ScrollableContainer>
       </Flex>
       <Stack

@@ -20,6 +20,8 @@ type Props = {
   icon: any;
   title: string;
   subtitle?: string;
+  screenHeight: number;
+  screenWidth: number;
 };
 
 export const MostazaOverlay: React.FC<Props> = (props) => {
@@ -29,8 +31,11 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
       title: "Mostaza",
       content: (
         <Stack w={"100%"} h={"100%"}>
-          <Flex alignItems={"center"}>
-            <Stack w={"50%"}>
+          <Flex
+            alignItems={"center"}
+            direction={props.screenWidth <= 557 ? "column" : "row"}
+          >
+            <Stack w={props.screenWidth <= 557 ? "100%" : "50%"}>
               <Text fontSize={"xl"}>
                 I'm currently working at Mostaza as a Full Stack Engineer.
               </Text>
@@ -100,7 +105,10 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
                 </Stack>
               </Center>
             </Stack>
-            <Stack w={"50%"}>
+            <Stack
+              w={props.screenWidth <= 557 ? "100%" : "50%"}
+              paddingTop={props.screenWidth <= 557 ? "4rem" : "0"}
+            >
               <a href={"https://simulatoresuperbonus.it/"} target="_blank">
                 <Center w={"100%"}>
                   <img src={SuperbonusMobile} width={"25%"} />
@@ -123,6 +131,8 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
   return (
     <DetailsOverlay
       display={props.display}
+      screenHeight={props.screenHeight}
+      screenWidth={props.screenWidth}
       toggleDisplay={props.toggleDisplay}
       icon={props.icon}
       title={props.title}

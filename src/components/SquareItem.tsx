@@ -13,8 +13,8 @@ type Props = {
   selected?: boolean;
   onClick?: any;
   text?: string;
-  height?: any;
-  width?: any;
+  screenHeight?: any;
+  screenWidth?: any;
 };
 
 export const ItemSquare: React.FC<Props> = (props) => {
@@ -22,7 +22,7 @@ export const ItemSquare: React.FC<Props> = (props) => {
 
   let size = "45vh";
 
-  if (props.width <= 557) {
+  if (props.screenWidth <= 557) {
     size = "45vh";
   }
 

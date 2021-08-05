@@ -21,22 +21,27 @@ type Props = {
   title: string;
   subtitle?: string;
   voices?: OverlayVoiceType[];
+  screenHeight: number;
+  screenWidth: number;
 };
+
 export const DetailsOverlay: React.FC<Props> = (props) => {
   const [currentContentIndex, setCurrentContentIndex] = useState(0);
   let voices: any[] = [];
   let voicesContents: any[] = [];
-  console.log(currentContentIndex);
+
   props.voices?.map((voice, index) => {
     if (voice) {
       voices.push(
-        <DetailsOverlayVoice
-          text={voice.title}
-          onClick={() => {
-            setCurrentContentIndex(index);
-          }}
-          isActive={index === currentContentIndex}
-        ></DetailsOverlayVoice>
+        <Flex w={"100%"} justifyContent={"center"}>
+          <DetailsOverlayVoice
+            text={voice.title}
+            onClick={() => {
+              setCurrentContentIndex(index);
+            }}
+            isActive={index === currentContentIndex}
+          />
+        </Flex>
       );
       voicesContents.push(voice.content);
     }
@@ -95,29 +100,54 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
             <Flex h={"0.1rem"} w={"95%"} bg={theme.colors.lightGrey}></Flex>
           </Center>
           {/* Center */}
-          <Flex h={"80%"} w={"100%"} color={"white"} overflow={"hidden"}>
+          <Flex
+            h={"80%"}
+            w={"100%"}
+            color={"white"}
+            overflow={"hidden"}
+            direction={props.screenWidth <= 557 ? "column" : "row"}
+          >
             <Stack
-              w={"15%"}
+              w={props.screenWidth <= 557 ? "100%" : "15%"}
               paddingLeft={"3%"}
               paddingTop={"2%"}
               marginRight={"1rem"}
+              justifyContent={props.screenWidth <= 557 ? "center" : ""}
             >
               {voices}
             </Stack>
-            <Center h={"100%"}>
-              <Flex w={"0.1rem"} h={"100%"} bg={theme.colors.lightGrey}></Flex>
+            <Center
+              h={props.screenWidth <= 557 ? "" : "100%"}
+              w={props.screenWidth <= 557 ? "100%" : ""}
+            >
+              <Flex
+                w={props.screenWidth <= 557 ? "100%" : "0.1rem"}
+                h={props.screenWidth <= 557 ? "0.1rem" : "100%"}
+                bg={theme.colors.lightGrey}
+              ></Flex>
             </Center>
-            <Flex w={"80%"} padding={"1%"} overflowY={"scroll"}>
+            <Flex
+              w={props.screenWidth <= 557 ? "100%" : "80%"}
+              padding={"1%"}
+              overflowY={"scroll"}
+            >
               {voicesContents[currentContentIndex]}
             </Flex>
           </Flex>
-          <Center paddingTop={"2rem"} paddingBottom={"1rem"}>
+          <Center
+            paddingTop={"2rem"}
+            paddingBottom={props.screenWidth <= 557 ? "0.1vh" : "1rem"}
+            margin={0}
+          >
             <Flex h={"0.1rem"} w={"95%"} bg={theme.colors.lightGrey}></Flex>
           </Center>
           {/* Bottombar */}
-          <Flex paddingLeft={"3rem"} h={"10%"} paddingBottom={"1rem"}>
-            <Center w={"10%"}>
-              <img style={{ width: "7rem" }} src={switchIcon} />
+          <Flex h={props.screenWidth <= 557 ? "10vh" : ""}>
+            <Center w={props.screenWidth <= 557 ? "100%" : "10%"} h={"100%"}>
+              <img
+                style={{ width: props.screenWidth <= 557 ? "25%" : "13vh" }}
+                src={switchIcon}
+              />
             </Center>
           </Flex>
         </Stack>
