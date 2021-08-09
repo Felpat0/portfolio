@@ -17,26 +17,32 @@ import { OverlayVoiceType } from "../types";
 type Props = {
   display?: string;
   toggleDisplay?: any;
+  overlayId?: number;
   icon: any;
   title: string;
   subtitle?: string;
   voices?: OverlayVoiceType[];
+  screenHeight: number;
+  screenWidth: number;
 };
+
 export const DetailsOverlay: React.FC<Props> = (props) => {
   const [currentContentIndex, setCurrentContentIndex] = useState(0);
   let voices: any[] = [];
   let voicesContents: any[] = [];
-  console.log(currentContentIndex);
+
   props.voices?.map((voice, index) => {
     if (voice) {
       voices.push(
-        <DetailsOverlayVoice
-          text={voice.title}
-          onClick={() => {
-            setCurrentContentIndex(index);
-          }}
-          isActive={index === currentContentIndex}
-        ></DetailsOverlayVoice>
+        <Flex w={"100%"} justifyContent={"center"}>
+          <DetailsOverlayVoice
+            text={voice.title}
+            onClick={() => {
+              setCurrentContentIndex(index);
+            }}
+            isActive={index === currentContentIndex}
+          />
+        </Flex>
       );
       voicesContents.push(voice.content);
     }
@@ -47,13 +53,19 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
       <StyledCenter2>
         <Stack bg={theme.colors.backgroundHome} w={"100%"} h={"100%"}>
           {/* Topbar */}
-          <Flex h={"12vh"} direction={"row"} alignItems={"center"}>
+          <Flex
+            h={props.screenWidth <= 557 ? "10vh" : "12vh"}
+            direction={"row"}
+            alignItems={"center"}
+          >
             <Center
-              w={"12vh"}
-              h={"12vh"}
+              w={props.screenWidth <= 557 ? "10vh" : "12vh"}
+              h={props.screenWidth <= 557 ? "10vh" : "12vh"}
+              minW={props.screenWidth <= 557 ? "10vh" : "12vh"}
+              minH={props.screenWidth <= 557 ? "10vh" : "12vh"}
               border={"1px solid " + theme.colors.darkGrey}
               bg={"rgba(0, 0, 0, 0.1)"}
-              marginTop={"0.4%"}
+              marginTop={props.screenWidth <= 557 ? "0.3rem" : "0.4%"}
               marginLeft={"5%"}
             >
               <StyledImg src={props.icon} />
@@ -69,14 +81,18 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
               <Text fontSize={"2xl"} color={"white"}>
                 {props.title}
               </Text>
-              <Text
-                fontSize={"sm"}
-                position={"absolute"}
-                color={"rgba(250, 250, 250, 0.7)"}
-                bottom={0}
-              >
-                {props.subtitle}
-              </Text>
+              {props.screenWidth > 557 ? (
+                <Text
+                  fontSize={"sm"}
+                  position={"absolute"}
+                  color={"rgba(250, 250, 250, 0.7)"}
+                  bottom={0}
+                >
+                  {props.subtitle}
+                </Text>
+              ) : (
+                <></>
+              )}
             </Flex>
             <Spacer />
             <Flex h={"100%"} paddingTop={"1rem"}>
@@ -86,43 +102,81 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
                 size={"lg"}
                 top={0}
                 onClick={() => {
-                  props.toggleDisplay();
+                  props.toggleDisplay(props.overlayId);
                 }}
               />
             </Flex>
           </Flex>
-          <Center paddingBottom={"1rem"}>
+          {props.screenWidth <= 557 ? (
+            <Text
+              fontSize={"sm"}
+              color={"rgba(250, 250, 250, 0.7)"}
+              textAlign={"center"}
+            >
+              {props.subtitle}
+            </Text>
+          ) : (
+            <></>
+          )}
+          <Center paddingBottom={props.screenWidth <= 557 ? "0" : "1rem"}>
             <Flex h={"0.1rem"} w={"95%"} bg={theme.colors.lightGrey}></Flex>
           </Center>
           {/* Center */}
-          <Flex h={"80%"} w={"100%"} color={"white"} overflow={"hidden"}>
+          <Flex
+            h={"80%"}
+            w={"100%"}
+            color={"white"}
+            overflow={"hidden"}
+            direction={props.screenWidth <= 557 ? "column" : "row"}
+          >
             <Stack
-              w={"15%"}
+              w={props.screenWidth <= 557 ? "100%" : "15%"}
               paddingLeft={"3%"}
               paddingTop={"2%"}
               marginRight={"1rem"}
+              justifyContent={props.screenWidth <= 557 ? "center" : ""}
             >
               {voices}
             </Stack>
-            <Center h={"100%"}>
-              <Flex w={"0.1rem"} h={"100%"} bg={theme.colors.lightGrey}></Flex>
+            <Center
+              h={props.screenWidth <= 557 ? "" : "100%"}
+              w={props.screenWidth <= 557 ? "100%" : ""}
+            >
+              <Flex
+                w={props.screenWidth <= 557 ? "100%" : "0.1rem"}
+                h={props.screenWidth <= 557 ? "0.1rem" : "100%"}
+                bg={theme.colors.lightGrey}
+              ></Flex>
             </Center>
-            <Flex w={"80%"} padding={"1%"} overflowY={"scroll"}>
+            <Flex
+              w={props.screenWidth <= 557 ? "100%" : "80%"}
+              padding={"1%"}
+              overflowY={"scroll"}
+            >
               {voicesContents[currentContentIndex]}
             </Flex>
           </Flex>
-          <Center paddingTop={"2rem"} paddingBottom={"1rem"}>
+          <Center
+            paddingTop={"2rem"}
+            paddingBottom={props.screenWidth <= 557 ? "0.1vh" : "1rem"}
+            margin={0}
+          >
             <Flex h={"0.1rem"} w={"95%"} bg={theme.colors.lightGrey}></Flex>
           </Center>
           {/* Bottombar */}
-          <Flex paddingLeft={"3rem"} h={"10%"} paddingBottom={"1rem"}>
-            <Center w={"10%"}>
-              <img style={{ width: "7rem" }} src={switchIcon} />
+          <Flex h={props.screenWidth <= 557 ? "10vh" : ""}>
+            <Center w={props.screenWidth <= 557 ? "100%" : "10%"} h={"100%"}>
+              <img
+                style={{ width: props.screenWidth <= 557 ? "25%" : "13vh" }}
+                src={switchIcon}
+              />
             </Center>
           </Flex>
         </Stack>
       </StyledCenter2>
-      <ExitCenter onClick={props.toggleDisplay}></ExitCenter>
+      <ExitCenter
+        onClick={() => props.toggleDisplay(props.overlayId)}
+      ></ExitCenter>
     </StyledCenter>
   );
 };
