@@ -17,6 +17,7 @@ import { OverlayVoiceType } from "../types";
 type Props = {
   display?: string;
   toggleDisplay?: any;
+  overlayId?: number;
   icon: any;
   title: string;
   subtitle?: string;
@@ -52,13 +53,19 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
       <StyledCenter2>
         <Stack bg={theme.colors.backgroundHome} w={"100%"} h={"100%"}>
           {/* Topbar */}
-          <Flex h={"12vh"} direction={"row"} alignItems={"center"}>
+          <Flex
+            h={props.screenWidth <= 557 ? "10vh" : "12vh"}
+            direction={"row"}
+            alignItems={"center"}
+          >
             <Center
-              w={"12vh"}
-              h={"12vh"}
+              w={props.screenWidth <= 557 ? "10vh" : "12vh"}
+              h={props.screenWidth <= 557 ? "10vh" : "12vh"}
+              minW={props.screenWidth <= 557 ? "10vh" : "12vh"}
+              minH={props.screenWidth <= 557 ? "10vh" : "12vh"}
               border={"1px solid " + theme.colors.darkGrey}
               bg={"rgba(0, 0, 0, 0.1)"}
-              marginTop={"0.4%"}
+              marginTop={props.screenWidth <= 557 ? "0.3rem" : "0.4%"}
               marginLeft={"5%"}
             >
               <StyledImg src={props.icon} />
@@ -74,14 +81,18 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
               <Text fontSize={"2xl"} color={"white"}>
                 {props.title}
               </Text>
-              <Text
-                fontSize={"sm"}
-                position={"absolute"}
-                color={"rgba(250, 250, 250, 0.7)"}
-                bottom={0}
-              >
-                {props.subtitle}
-              </Text>
+              {props.screenWidth > 557 ? (
+                <Text
+                  fontSize={"sm"}
+                  position={"absolute"}
+                  color={"rgba(250, 250, 250, 0.7)"}
+                  bottom={0}
+                >
+                  {props.subtitle}
+                </Text>
+              ) : (
+                <></>
+              )}
             </Flex>
             <Spacer />
             <Flex h={"100%"} paddingTop={"1rem"}>
@@ -91,12 +102,23 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
                 size={"lg"}
                 top={0}
                 onClick={() => {
-                  props.toggleDisplay();
+                  props.toggleDisplay(props.overlayId);
                 }}
               />
             </Flex>
           </Flex>
-          <Center paddingBottom={"1rem"}>
+          {props.screenWidth <= 557 ? (
+            <Text
+              fontSize={"sm"}
+              color={"rgba(250, 250, 250, 0.7)"}
+              textAlign={"center"}
+            >
+              {props.subtitle}
+            </Text>
+          ) : (
+            <></>
+          )}
+          <Center paddingBottom={props.screenWidth <= 557 ? "0" : "1rem"}>
             <Flex h={"0.1rem"} w={"95%"} bg={theme.colors.lightGrey}></Flex>
           </Center>
           {/* Center */}
@@ -152,7 +174,9 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
           </Flex>
         </Stack>
       </StyledCenter2>
-      <ExitCenter onClick={props.toggleDisplay}></ExitCenter>
+      <ExitCenter
+        onClick={() => props.toggleDisplay(props.overlayId)}
+      ></ExitCenter>
     </StyledCenter>
   );
 };

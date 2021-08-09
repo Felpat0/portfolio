@@ -5,11 +5,15 @@ import { RoundIcon } from "../components/RoundIcon";
 import { ScrollableContainer } from "../components/ScrollableContainer";
 import { TopBar } from "../components/TopBar";
 
+import mostazaSquare from "./../assets/squares/mostaza.svg";
+import webDevSquare from "./../assets/squares/webdev.png";
+import videogamesSquare from "./../assets/squares/videogames.png";
+import mlSquare from "./../assets/squares/machineLearning.png";
+
 import linkedinIcon from "./../assets/icons/linkedin.png";
 import githubIcon from "./../assets/icons/github.svg";
 import mailIcon from "./../assets/icons/mailOrange.svg";
 import switchIcon from "./../assets/icons/switch.png";
-import mostazaSquare from "./../assets/squares/mostaza.svg";
 import rivenIcon from "./../assets/icons/riven.jpg";
 import infoIcon from "./../assets/icons/info.png";
 
@@ -19,7 +23,7 @@ import { MostazaOverlay } from "../components/overlays/MostazaOverlay";
 
 export const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [mostazaOverlayDisplay, setMostazaOverlayDisplay] = useState("none");
+  const [currentOverlay, setCurrentOverlay] = useState(-1);
   const [width, setWidth] = useState(
     window.innerWidth > 0 ? window.innerWidth : window.screen.width
   );
@@ -36,10 +40,17 @@ export const Home: React.FC = () => {
     });
   }, []);
 
-  const toggleMostazaOverlay = useCallback(() => {
-    if (mostazaOverlayDisplay == "block") setMostazaOverlayDisplay("none");
-    else setMostazaOverlayDisplay("block");
-  }, [mostazaOverlayDisplay]);
+  const toggleOverlay = useCallback(
+    (overlayId: number) => {
+      console.log(overlayId);
+      if (overlayId != null && overlayId != undefined) {
+        if (currentOverlay != -1) setCurrentOverlay(-1);
+        else setCurrentOverlay(overlayId);
+      } else setCurrentOverlay(-1);
+    },
+    [currentOverlay]
+  );
+
   if (isLoading)
     return (
       <Center height={"100vh"} margin={0} overflow={"hidden"}>
@@ -58,10 +69,11 @@ export const Home: React.FC = () => {
       <Flex h={"10vh"} paddingTop={"2vh"}>
         <TopBar height={height} width={width} />
         <MostazaOverlay
-          display={mostazaOverlayDisplay}
+          display={currentOverlay === 0 ? "block" : "none"}
           screenHeight={height}
           screenWidth={width}
-          toggleDisplay={toggleMostazaOverlay}
+          toggleDisplay={toggleOverlay}
+          overlayId={0}
           icon={mostazaSquare}
           title={"Mostaza"}
           subtitle={"Currently working | Full Stack Engineer"}
@@ -75,14 +87,33 @@ export const Home: React.FC = () => {
             backgroundColor={"#50585a"}
             working={true}
             workingImage={rivenIcon}
-            selected={true}
-            onClick={() => setMostazaOverlayDisplay("block")}
+            onClick={() => setCurrentOverlay(0)}
             screenHeight={height}
             screenWidth={width}
           />
-          <ItemSquare screenHeight={height} screenWidth={width} />
-          <ItemSquare screenHeight={height} screenWidth={width} />
-          <ItemSquare screenHeight={height} screenWidth={width} />
+          <ItemSquare
+            image={webDevSquare}
+            text={"Web Development Projects"}
+            selected={true}
+            onClick={() => setCurrentOverlay(2)}
+            screenHeight={height}
+            screenWidth={width}
+          />
+          <ItemSquare
+            image={videogamesSquare}
+            text={"Videogames Projects"}
+            onClick={() => setCurrentOverlay(1)}
+            screenHeight={height}
+            screenWidth={width}
+          />
+          <ItemSquare
+            image={mlSquare}
+            text={"Machine Learning Projects"}
+            selected={true}
+            onClick={() => setCurrentOverlay(2)}
+            screenHeight={height}
+            screenWidth={width}
+          />
           <ItemSquare screenHeight={height} screenWidth={width} />
           <ItemSquare screenHeight={height} screenWidth={width} />
           <ItemSquare screenHeight={height} screenWidth={width} />

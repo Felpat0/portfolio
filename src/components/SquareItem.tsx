@@ -21,9 +21,10 @@ export const ItemSquare: React.FC<Props> = (props) => {
   const [opacity, setOpacity] = useState(0);
 
   let size = "45vh";
+  let textFlexSize = "5rem";
 
   if (props.screenWidth <= 557) {
-    size = "45vh";
+    size = "80vw";
   }
 
   let backgroundColor = "rgba(250, 250, 250, 0.015)";
@@ -35,15 +36,18 @@ export const ItemSquare: React.FC<Props> = (props) => {
   if (!props.image)
     return (
       <Stack>
-        <Text
+        <Flex
           color={theme.colors.textAquaBlue}
           fontSize={"2xl"}
-          textAlign={"center"}
+          w={"100%"}
           /* @ts-ignore */
           style={{ visibility: textVisibility }}
+          h={textFlexSize}
         >
-          {props.text ? props.text : "a"}
-        </Text>
+          <Text textAlign={"center"} w={"100%"}>
+            {props.text ? props.text : "a"}
+          </Text>
+        </Flex>
         <Flex
           style={props.style}
           border={"3px solid rgba(104, 220, 230, " + opacity + ")"}
@@ -64,15 +68,25 @@ export const ItemSquare: React.FC<Props> = (props) => {
   else if (props.working && props.workingImage)
     return (
       <Stack>
-        <Text
+        <Flex
           color={theme.colors.textAquaBlue}
           fontSize={"2xl"}
           textAlign={"center"}
+          w={"100%"}
           /* @ts-ignore */
           style={{ visibility: textVisibility }}
+          h={textFlexSize}
+          position={"relative"}
         >
-          {props.text ? props.text : "a"}
-        </Text>
+          <Text
+            textAlign={"center"}
+            w={"100%"}
+            position={"absolute"}
+            bottom={0}
+          >
+            {props.text}
+          </Text>
+        </Flex>
         <Flex
           style={props.style}
           border={"3px solid rgba(104, 220, 230, " + opacity + ")"}
@@ -126,15 +140,25 @@ export const ItemSquare: React.FC<Props> = (props) => {
     return (
       <Stack>
         {/* @ts-ignore */}
-        <Text
+        <Flex
           color={theme.colors.textAquaBlue}
           fontSize={"2xl"}
           textAlign={"center"}
+          w={"100%"}
           /* @ts-ignore */
           style={{ visibility: textVisibility }}
+          h={textFlexSize}
+          position={"relative"}
         >
-          {props.text ? props.text : "a"}
-        </Text>
+          <Text
+            textAlign={"center"}
+            w={"100%"}
+            position={"absolute"}
+            bottom={0}
+          >
+            {props.text}
+          </Text>
+        </Flex>
         <Flex
           style={props.style}
           border={"3px solid rgba(104, 220, 230, " + opacity + ")"}

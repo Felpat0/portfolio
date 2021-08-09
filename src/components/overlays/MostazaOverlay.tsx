@@ -17,6 +17,7 @@ import BitBucketIcon from "../../assets/icons/bitbucket.png";
 type Props = {
   display?: string;
   toggleDisplay?: any;
+  overlayId?: number;
   icon: any;
   title: string;
   subtitle?: string;
@@ -36,7 +37,7 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
             direction={props.screenWidth <= 557 ? "column" : "row"}
           >
             <Stack w={props.screenWidth <= 557 ? "100%" : "50%"}>
-              <Text fontSize={"xl"}>
+              <Text fontSize={"xl"} textAlign={"center"}>
                 I'm currently working at Mostaza as a Full Stack Engineer.
               </Text>
               <br />
@@ -71,7 +72,7 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
                   </Center>
                 </Stack>
               </Center>
-              <Center paddingTop={"5rem"}>
+              <Center paddingTop={props.screenWidth <= 557 ? "2rem" : "5rem"}>
                 <Stack>
                   <Center>
                     <Flex w={"2rem"} h={"2rem"} marginRight={"1rem"}>
@@ -110,9 +111,18 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
               paddingTop={props.screenWidth <= 557 ? "4rem" : "0"}
             >
               <a href={"https://simulatoresuperbonus.it/"} target="_blank">
-                <Center w={"100%"}>
-                  <img src={SuperbonusMobile} width={"25%"} />
-                  <img src={SuperbonusDesktop} width={"75%"} />
+                <Center
+                  w={"100%"}
+                  flexDirection={props.screenWidth <= 557 ? "column" : "row"}
+                >
+                  <img
+                    src={SuperbonusMobile}
+                    width={props.screenWidth <= 557 ? "90%" : "25%"}
+                  />
+                  <img
+                    src={SuperbonusDesktop}
+                    width={props.screenWidth <= 557 ? "90%" : "75%"}
+                  />
                 </Center>
                 <Text textAlign={"center"} fontSize={"xl"}>
                   Last project: <strong>Superbonus 110% Simulator</strong>
@@ -131,6 +141,7 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
   return (
     <DetailsOverlay
       display={props.display}
+      overlayId={props.overlayId}
       screenHeight={props.screenHeight}
       screenWidth={props.screenWidth}
       toggleDisplay={props.toggleDisplay}
