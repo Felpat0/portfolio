@@ -95,14 +95,14 @@ export const Home: React.FC = () => {
             image={webDevSquare}
             text={"Web Development Projects"}
             selected={true}
-            onClick={() => setCurrentOverlay(2)}
+            onClick={() => setCurrentOverlay(1)}
             screenHeight={height}
             screenWidth={width}
           />
           <ItemSquare
             image={videogamesSquare}
             text={"Videogames Projects"}
-            onClick={() => setCurrentOverlay(1)}
+            onClick={() => setCurrentOverlay(2)}
             screenHeight={height}
             screenWidth={width}
           />
@@ -110,7 +110,7 @@ export const Home: React.FC = () => {
             image={mlSquare}
             text={"Machine Learning Projects"}
             selected={true}
-            onClick={() => setCurrentOverlay(2)}
+            onClick={() => setCurrentOverlay(3)}
             screenHeight={height}
             screenWidth={width}
           />
