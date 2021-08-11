@@ -34,7 +34,7 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
   props.voices?.map((voice, index) => {
     if (voice) {
       voices.push(
-        <Flex w={"100%"} justifyContent={"center"}>
+        <Flex w={"100%"}>
           <DetailsOverlayVoice
             text={voice.title}
             onClick={() => {
