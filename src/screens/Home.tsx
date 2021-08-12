@@ -23,6 +23,7 @@ import { MostazaOverlay } from "../components/overlays/MostazaOverlay";
 import { WebDevOverlay } from "../components/overlays/WebDevOverlay";
 import { VideogamesOverlay } from "../components/overlays/VideogamesOverlay";
 import { MLOverlay } from "../components/overlays/MLOverlay";
+import { BioOverlay } from "../components/overlays/BioOverlay";
 
 export const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -70,7 +71,12 @@ export const Home: React.FC = () => {
       overflow={"hidden"}
     >
       <Flex h={"10vh"} paddingTop={"2vh"}>
-        <TopBar height={height} width={width} />
+        <TopBar
+          height={height}
+          width={width}
+          toggleOverlay={toggleOverlay}
+          overlayId={4}
+        />
         <MostazaOverlay
           display={currentOverlay === 0 ? "block" : "none"}
           screenHeight={height}
@@ -107,6 +113,15 @@ export const Home: React.FC = () => {
           overlayId={3}
           icon={mlSquare}
           title={"ML Projects"}
+        />
+        <BioOverlay
+          display={currentOverlay === 4 ? "block" : "none"}
+          screenHeight={height}
+          screenWidth={width}
+          toggleDisplay={toggleOverlay}
+          overlayId={4}
+          icon={rivenIcon}
+          title={"Federico Cattini"}
         />
       </Flex>
       <Flex h={"60vh"} w={"100%"} paddingTop={width <= 557 ? "0vh" : "3vh"}>
