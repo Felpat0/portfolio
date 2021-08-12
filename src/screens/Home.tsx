@@ -28,6 +28,7 @@ import { BioOverlay } from "../components/overlays/BioOverlay";
 export const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [currentOverlay, setCurrentOverlay] = useState(-1);
+  const [mouseDownTime, setMouseDownTime] = useState(0);
   const [width, setWidth] = useState(
     window.innerWidth > 0 ? window.innerWidth : window.screen.width
   );
@@ -46,7 +47,6 @@ export const Home: React.FC = () => {
 
   const toggleOverlay = useCallback(
     (overlayId: number) => {
-      console.log(overlayId);
       if (overlayId != null && overlayId != undefined) {
         if (currentOverlay != -1) setCurrentOverlay(-1);
         else setCurrentOverlay(overlayId);
@@ -69,6 +69,9 @@ export const Home: React.FC = () => {
       maxW={"100vw"}
       bg={theme.colors.backgroundHome}
       overflow={"hidden"}
+      onMouseDown={() => {
+        setMouseDownTime(Date.now());
+      }}
     >
       <Flex h={"10vh"} paddingTop={"2vh"}>
         <TopBar
@@ -132,7 +135,11 @@ export const Home: React.FC = () => {
             backgroundColor={"#50585a"}
             working={true}
             workingImage={rivenIcon}
-            onClick={() => setCurrentOverlay(0)}
+            onClick={() => {
+              if (Date.now() - mouseDownTime < 200) {
+                setCurrentOverlay(0);
+              }
+            }}
             screenHeight={height}
             screenWidth={width}
           />
@@ -140,14 +147,22 @@ export const Home: React.FC = () => {
             image={webDevSquare}
             text={"Web Development Projects"}
             selected={true}
-            onClick={() => setCurrentOverlay(1)}
+            onClick={() => {
+              if (Date.now() - mouseDownTime < 200) {
+                setCurrentOverlay(1);
+              }
+            }}
             screenHeight={height}
             screenWidth={width}
           />
           <ItemSquare
             image={videogamesSquare}
             text={"Videogames Projects"}
-            onClick={() => setCurrentOverlay(2)}
+            onClick={() => {
+              if (Date.now() - mouseDownTime < 200) {
+                setCurrentOverlay(2);
+              }
+            }}
             screenHeight={height}
             screenWidth={width}
           />
@@ -155,7 +170,11 @@ export const Home: React.FC = () => {
             image={mlSquare}
             text={"Machine Learning Projects"}
             selected={true}
-            onClick={() => setCurrentOverlay(3)}
+            onClick={() => {
+              if (Date.now() - mouseDownTime < 200) {
+                setCurrentOverlay(3);
+              }
+            }}
             screenHeight={height}
             screenWidth={width}
           />
