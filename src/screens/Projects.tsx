@@ -26,7 +26,7 @@ export const Projects: React.FC<Props> = (props) => {
         overflowX={"hidden"}
       >
         <Center h={"100vh"}>
-          <Loading textFromTop={"Nintendo"} textFromBottom={"Switch"} />
+          <Loading screenHeight={0} screenWidth={0} />
         </Center>
       </Stack>
     );

@@ -25,8 +25,13 @@ import { VideogamesOverlay } from "../components/overlays/VideogamesOverlay";
 import { MLOverlay } from "../components/overlays/MLOverlay";
 import { BioOverlay } from "../components/overlays/BioOverlay";
 
+import { fadeIn } from "react-animations";
+import styled, { keyframes } from "styled-components";
+
+const fadeInAnimation = keyframes`${fadeIn}`;
+
 export const Home: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [currentOverlay, setCurrentOverlay] = useState(-1);
   const [mouseDownTime, setMouseDownTime] = useState(0);
   const [width, setWidth] = useState(
@@ -43,6 +48,11 @@ export const Home: React.FC = () => {
         window.innerHeight > 0 ? window.innerHeight : window.screen.height
       );
     });
+
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
   }, []);
 
   const toggleOverlay = useCallback(
@@ -55,12 +65,18 @@ export const Home: React.FC = () => {
     [currentOverlay]
   );
 
-  if (isLoading)
+  if (isLoading) {
     return (
-      <Center height={"100vh"} margin={0} overflow={"hidden"}>
-        <Loading textFromTop={"Nintendo"} textFromBottom={"Switch"} />
+      <Center
+        height={"100vh"}
+        margin={0}
+        overflow={"hidden"}
+        bg={theme.colors.backgroundHome}
+      >
+        <Loading screenHeight={height} screenWidth={width} />
       </Center>
     );
+  }
   return (
     <Stack
       w={"100%"}
@@ -69,178 +85,191 @@ export const Home: React.FC = () => {
       maxW={"100vw"}
       bg={theme.colors.backgroundHome}
       overflow={"hidden"}
-      onMouseDown={() => {
-        setMouseDownTime(Date.now());
-      }}
     >
-      <Flex h={"10vh"} paddingTop={"2vh"}>
-        <TopBar
-          height={height}
-          width={width}
-          toggleOverlay={toggleOverlay}
-          overlayId={4}
-        />
-        <MostazaOverlay
-          display={currentOverlay === 0 ? "block" : "none"}
-          screenHeight={height}
-          screenWidth={width}
-          toggleDisplay={toggleOverlay}
-          overlayId={0}
-          icon={mostazaSquare}
-          title={"Mostaza"}
-          subtitle={"Currently working | Full Stack Engineer"}
-        />
-        <WebDevOverlay
-          display={currentOverlay === 1 ? "block" : "none"}
-          screenHeight={height}
-          screenWidth={width}
-          toggleDisplay={toggleOverlay}
-          overlayId={1}
-          icon={webDevSquare}
-          title={"Web Dev Projects"}
-        />
-        <VideogamesOverlay
-          display={currentOverlay === 2 ? "block" : "none"}
-          screenHeight={height}
-          screenWidth={width}
-          toggleDisplay={toggleOverlay}
-          overlayId={2}
-          icon={videogamesSquare}
-          title={"Videogames Projects"}
-        />
-        <MLOverlay
-          display={currentOverlay === 3 ? "block" : "none"}
-          screenHeight={height}
-          screenWidth={width}
-          toggleDisplay={toggleOverlay}
-          overlayId={3}
-          icon={mlSquare}
-          title={"ML Projects"}
-        />
-        <BioOverlay
-          display={currentOverlay === 4 ? "block" : "none"}
-          screenHeight={height}
-          screenWidth={width}
-          toggleDisplay={toggleOverlay}
-          overlayId={4}
-          icon={rivenIcon}
-          title={"Federico Cattini"}
-        />
-      </Flex>
-      <Flex h={"60vh"} w={"100%"} paddingTop={width <= 557 ? "0vh" : "3vh"}>
-        <ScrollableContainer>
-          <ItemSquare
-            image={mostazaSquare}
-            text={"Mostaza"}
-            backgroundColor={"#50585a"}
-            working={true}
-            workingImage={rivenIcon}
-            onClick={() => {
-              if (Date.now() - mouseDownTime < 200) {
-                setCurrentOverlay(0);
-              }
-            }}
-            screenHeight={height}
-            screenWidth={width}
-          />
-          <ItemSquare
-            image={webDevSquare}
-            text={"Web Development Projects"}
-            selected={true}
-            onClick={() => {
-              if (Date.now() - mouseDownTime < 200) {
-                setCurrentOverlay(1);
-              }
-            }}
-            screenHeight={height}
-            screenWidth={width}
-          />
-          <ItemSquare
-            image={videogamesSquare}
-            text={"Videogames Projects"}
-            onClick={() => {
-              if (Date.now() - mouseDownTime < 200) {
-                setCurrentOverlay(2);
-              }
-            }}
-            screenHeight={height}
-            screenWidth={width}
-          />
-          <ItemSquare
-            image={mlSquare}
-            text={"Machine Learning Projects"}
-            selected={true}
-            onClick={() => {
-              if (Date.now() - mouseDownTime < 200) {
-                setCurrentOverlay(3);
-              }
-            }}
-            screenHeight={height}
-            screenWidth={width}
-          />
-          <ItemSquare screenHeight={height} screenWidth={width} />
-          <ItemSquare screenHeight={height} screenWidth={width} />
-          <ItemSquare screenHeight={height} screenWidth={width} />
-          <ItemSquare screenHeight={height} screenWidth={width} />
-          <ItemSquare screenHeight={height} screenWidth={width} />
-          <ItemSquare screenHeight={height} screenWidth={width} />
-          <ItemSquare screenHeight={height} screenWidth={width} />
-        </ScrollableContainer>
-      </Flex>
-      <Stack
-        height={"12vh"}
-        width={"100%"}
-        direction={"row"}
-        spacing={"1.5vw"}
-        justifyContent={"center"}
+      <FadeInStack
+        w={"100%"}
+        h={"100%"}
+        minH={"100vh"}
+        maxW={"100vw"}
+        bg={theme.colors.backgroundHome}
+        overflow={"hidden"}
+        onMouseDown={() => {
+          setMouseDownTime(Date.now());
+        }}
       >
-        <RoundIcon
-          image={linkedinIcon}
-          variant={"bottomBar"}
-          width={width <= 557 ? "20vw" : "11.5vh"}
-          height={width <= 557 ? "20vw" : "11.5vh"}
-          imgHeight={width <= 557 ? "11vw" : "7vh"}
-          imgWidth={width <= 557 ? "11vw" : "7vh"}
-          href={"https://www.linkedin.com/in/federicocattini/"}
-        />
-        <RoundIcon
-          image={githubIcon}
-          variant={"bottomBar"}
-          width={width <= 557 ? "20vw" : "11.5vh"}
-          height={width <= 557 ? "20vw" : "11.5vh"}
-          imgHeight={width <= 557 ? "15vw" : "9vh"}
-          imgWidth={width <= 557 ? "15vw" : "9vh"}
-          href={"https://github.com/Felpat0"}
-        />
-        <RoundIcon
-          image={mailIcon}
-          variant={"bottomBar"}
-          width={width <= 557 ? "20vw" : "11.5vh"}
-          height={width <= 557 ? "20vw" : "11.5vh"}
-          imgHeight={width <= 557 ? "15vw" : "8vh"}
-          imgWidth={width <= 557 ? "15vw" : "8vh"}
-          href={"mailto: federico.cattini98@gmail.com"}
-        />
-        <RoundIcon
-          image={infoIcon}
-          variant={"bottomBar"}
-          width={width <= 557 ? "20vw" : "11.5vh"}
-          height={width <= 557 ? "20vw" : "11.5vh"}
-          imgHeight={width <= 557 ? "15vw" : "10vh"}
-          imgWidth={width <= 557 ? "15vw" : "10vh"}
-        />
-      </Stack>
-      <Center h={"4vh"}>
-        <Flex h={"0.1rem"} w={"95%"} bg={theme.colors.lightGrey}></Flex>
-      </Center>
-      <Flex h={"100%"}>
-        <Center w={width <= 557 ? "100%" : "10%"}>
-          <img
-            style={{ width: width <= 557 ? "25%" : "13vh" }}
-            src={switchIcon}
+        <Flex h={"10vh"} paddingTop={"2vh"}>
+          <TopBar
+            height={height}
+            width={width}
+            toggleOverlay={toggleOverlay}
+            overlayId={4}
           />
+          <MostazaOverlay
+            display={currentOverlay === 0 ? "block" : "none"}
+            screenHeight={height}
+            screenWidth={width}
+            toggleDisplay={toggleOverlay}
+            overlayId={0}
+            icon={mostazaSquare}
+            title={"Mostaza"}
+            subtitle={"Currently working | Full Stack Engineer"}
+          />
+          <WebDevOverlay
+            display={currentOverlay === 1 ? "block" : "none"}
+            screenHeight={height}
+            screenWidth={width}
+            toggleDisplay={toggleOverlay}
+            overlayId={1}
+            icon={webDevSquare}
+            title={"Web Dev Projects"}
+          />
+          <VideogamesOverlay
+            display={currentOverlay === 2 ? "block" : "none"}
+            screenHeight={height}
+            screenWidth={width}
+            toggleDisplay={toggleOverlay}
+            overlayId={2}
+            icon={videogamesSquare}
+            title={"Videogames Projects"}
+          />
+          <MLOverlay
+            display={currentOverlay === 3 ? "block" : "none"}
+            screenHeight={height}
+            screenWidth={width}
+            toggleDisplay={toggleOverlay}
+            overlayId={3}
+            icon={mlSquare}
+            title={"ML Projects"}
+          />
+          <BioOverlay
+            display={currentOverlay === 4 ? "block" : "none"}
+            screenHeight={height}
+            screenWidth={width}
+            toggleDisplay={toggleOverlay}
+            overlayId={4}
+            icon={rivenIcon}
+            title={"Federico Cattini"}
+          />
+        </Flex>
+        <Flex h={"60vh"} w={"100%"} paddingTop={width <= 557 ? "0vh" : "3vh"}>
+          <ScrollableContainer>
+            <ItemSquare
+              image={mostazaSquare}
+              text={"Mostaza"}
+              backgroundColor={"#50585a"}
+              working={true}
+              workingImage={rivenIcon}
+              onClick={() => {
+                if (Date.now() - mouseDownTime < 200) {
+                  setCurrentOverlay(0);
+                }
+              }}
+              screenHeight={height}
+              screenWidth={width}
+            />
+            <ItemSquare
+              image={webDevSquare}
+              text={"Web Development Projects"}
+              selected={true}
+              onClick={() => {
+                if (Date.now() - mouseDownTime < 200) {
+                  setCurrentOverlay(1);
+                }
+              }}
+              screenHeight={height}
+              screenWidth={width}
+            />
+            <ItemSquare
+              image={videogamesSquare}
+              text={"Videogames Projects"}
+              onClick={() => {
+                if (Date.now() - mouseDownTime < 200) {
+                  setCurrentOverlay(2);
+                }
+              }}
+              screenHeight={height}
+              screenWidth={width}
+            />
+            <ItemSquare
+              image={mlSquare}
+              text={"Machine Learning Projects"}
+              selected={true}
+              onClick={() => {
+                if (Date.now() - mouseDownTime < 200) {
+                  setCurrentOverlay(3);
+                }
+              }}
+              screenHeight={height}
+              screenWidth={width}
+            />
+            <ItemSquare screenHeight={height} screenWidth={width} />
+            <ItemSquare screenHeight={height} screenWidth={width} />
+            <ItemSquare screenHeight={height} screenWidth={width} />
+            <ItemSquare screenHeight={height} screenWidth={width} />
+            <ItemSquare screenHeight={height} screenWidth={width} />
+            <ItemSquare screenHeight={height} screenWidth={width} />
+            <ItemSquare screenHeight={height} screenWidth={width} />
+          </ScrollableContainer>
+        </Flex>
+        <Stack
+          height={"12vh"}
+          width={"100%"}
+          direction={"row"}
+          spacing={"1.5vw"}
+          justifyContent={"center"}
+        >
+          <RoundIcon
+            image={linkedinIcon}
+            variant={"bottomBar"}
+            width={width <= 557 ? "20vw" : "11.5vh"}
+            height={width <= 557 ? "20vw" : "11.5vh"}
+            imgHeight={width <= 557 ? "11vw" : "7vh"}
+            imgWidth={width <= 557 ? "11vw" : "7vh"}
+            href={"https://www.linkedin.com/in/federicocattini/"}
+          />
+          <RoundIcon
+            image={githubIcon}
+            variant={"bottomBar"}
+            width={width <= 557 ? "20vw" : "11.5vh"}
+            height={width <= 557 ? "20vw" : "11.5vh"}
+            imgHeight={width <= 557 ? "15vw" : "9vh"}
+            imgWidth={width <= 557 ? "15vw" : "9vh"}
+            href={"https://github.com/Felpat0"}
+          />
+          <RoundIcon
+            image={mailIcon}
+            variant={"bottomBar"}
+            width={width <= 557 ? "20vw" : "11.5vh"}
+            height={width <= 557 ? "20vw" : "11.5vh"}
+            imgHeight={width <= 557 ? "15vw" : "8vh"}
+            imgWidth={width <= 557 ? "15vw" : "8vh"}
+            href={"mailto: federico.cattini98@gmail.com"}
+          />
+          <RoundIcon
+            image={infoIcon}
+            variant={"bottomBar"}
+            width={width <= 557 ? "20vw" : "11.5vh"}
+            height={width <= 557 ? "20vw" : "11.5vh"}
+            imgHeight={width <= 557 ? "15vw" : "10vh"}
+            imgWidth={width <= 557 ? "15vw" : "10vh"}
+          />
+        </Stack>
+        <Center h={"4vh"}>
+          <Flex h={"0.1rem"} w={"95%"} bg={theme.colors.lightGrey}></Flex>
         </Center>
-      </Flex>
+        <Flex h={"100%"}>
+          <Center w={width <= 557 ? "100%" : "10%"}>
+            <img
+              style={{ width: width <= 557 ? "25%" : "13vh" }}
+              src={switchIcon}
+            />
+          </Center>
+        </Flex>
+      </FadeInStack>
     </Stack>
   );
 };
+
+const FadeInStack = styled(Stack)`
+  animation: 1s ${fadeInAnimation};
+`;
