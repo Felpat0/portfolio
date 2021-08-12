@@ -160,7 +160,7 @@ export const Home: React.FC = () => {
               working={true}
               workingImage={rivenIcon}
               onClick={() => {
-                if (Date.now() - mouseDownTime < 200) {
+                if (Date.now() - mouseDownTime < 100) {
                   setCurrentOverlay(0);
                 }
               }}
@@ -172,7 +172,7 @@ export const Home: React.FC = () => {
               text={"Web Development Projects"}
               selected={true}
               onClick={() => {
-                if (Date.now() - mouseDownTime < 200) {
+                if (Date.now() - mouseDownTime < 100) {
                   setCurrentOverlay(1);
                 }
               }}
@@ -183,7 +183,7 @@ export const Home: React.FC = () => {
               image={videogamesSquare}
               text={"Videogames Projects"}
               onClick={() => {
-                if (Date.now() - mouseDownTime < 200) {
+                if (Date.now() - mouseDownTime < 100) {
                   setCurrentOverlay(2);
                 }
               }}
@@ -195,7 +195,7 @@ export const Home: React.FC = () => {
               text={"Machine Learning Projects"}
               selected={true}
               onClick={() => {
-                if (Date.now() - mouseDownTime < 200) {
+                if (Date.now() - mouseDownTime < 100) {
                   setCurrentOverlay(3);
                 }
               }}
@@ -245,14 +245,14 @@ export const Home: React.FC = () => {
             imgWidth={width <= 557 ? "15vw" : "8vh"}
             href={"mailto: federico.cattini98@gmail.com"}
           />
-          <RoundIcon
+          {/* <RoundIcon
             image={infoIcon}
             variant={"bottomBar"}
             width={width <= 557 ? "20vw" : "11.5vh"}
             height={width <= 557 ? "20vw" : "11.5vh"}
             imgHeight={width <= 557 ? "15vw" : "10vh"}
             imgWidth={width <= 557 ? "15vw" : "10vh"}
-          />
+          /> */}
         </Stack>
         <Center h={"4vh"}>
           <Flex h={"0.1rem"} w={"95%"} bg={theme.colors.lightGrey}></Flex>

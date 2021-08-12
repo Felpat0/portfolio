@@ -77,6 +77,7 @@ export const VideogamesOverlay: React.FC<Props> = (props) => {
               display: "flex",
               flexDirection: props.screenWidth <= 557 ? "column" : "column",
               width: "100%",
+              alignItems: "center",
               height: "100%",
             }}
           >
