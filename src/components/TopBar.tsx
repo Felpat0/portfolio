@@ -1,15 +1,16 @@
 import { Flex, Spacer, Text } from "@chakra-ui/react";
 import { RoundIcon } from "./RoundIcon";
 import icon from "./../assets/icons/riven.jpg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import batteryIcon from "./../assets/icons/battery.png";
 import wifiIcon from "./../assets/icons/wifi.png";
-import styled from "styled-components";
 
 type Props = {
   height: any;
   width: any;
+  toggleOverlay?: any;
+  overlayId?: number;
 };
 
 export const TopBar: React.FC<Props> = (props) => {
@@ -56,6 +57,7 @@ export const TopBar: React.FC<Props> = (props) => {
         height={iconSize}
         imgWidth={iconSize}
         imgHeight={iconSize}
+        onClick={() => props.toggleOverlay(props.overlayId)}
       />
       <Text fontSize={fontSize} color={"white"} paddingLeft={"2vw"}>
         Federico Cattini

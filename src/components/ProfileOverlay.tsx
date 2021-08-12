@@ -13,6 +13,7 @@ import { theme } from "../assets/theme";
 import switchIcon from "./../assets/icons/switch.png";
 import { DetailsOverlayVoice } from "./DetailsOverlayVoice";
 import { OverlayVoiceType } from "../types";
+import { RoundIcon } from "./RoundIcon";
 
 type Props = {
   display?: string;
@@ -26,10 +27,13 @@ type Props = {
   screenWidth: number;
 };
 
-export const DetailsOverlay: React.FC<Props> = (props) => {
+export const ProfileOverlay: React.FC<Props> = (props) => {
   const [currentContentIndex, setCurrentContentIndex] = useState(0);
   let voices: any[] = [];
   let voicesContents: any[] = [];
+  let iconSize = "10vh";
+
+  if (props.screenWidth <= 557) iconSize = "3rem";
 
   props.voices?.map((voice, index) => {
     if (voice) {
@@ -47,7 +51,7 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
       voicesContents.push(voice.content);
     }
   });
-  //Add fade in animation
+
   return (
     <StyledCenter display={props.display}>
       <StyledCenter2>
@@ -57,19 +61,16 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
             h={props.screenWidth <= 557 ? "10vh" : "12vh"}
             direction={"row"}
             alignItems={"center"}
+            paddingLeft={"1vw"}
           >
-            <Center
-              w={props.screenWidth <= 557 ? "10vh" : "12vh"}
-              h={props.screenWidth <= 557 ? "10vh" : "12vh"}
-              minW={props.screenWidth <= 557 ? "10vh" : "12vh"}
-              minH={props.screenWidth <= 557 ? "10vh" : "12vh"}
-              border={"1px solid " + theme.colors.darkGrey}
-              bg={"rgba(0, 0, 0, 0.1)"}
-              marginTop={props.screenWidth <= 557 ? "0.3rem" : "0.4%"}
-              marginLeft={"5%"}
-            >
-              <StyledImg src={props.icon} />
-            </Center>
+            <RoundIcon
+              image={props.icon}
+              variant={"bottomBar"}
+              width={iconSize}
+              height={iconSize}
+              imgWidth={iconSize}
+              imgHeight={iconSize}
+            />
             <Flex
               flexDirection={"column"}
               marginLeft={"1rem"}
