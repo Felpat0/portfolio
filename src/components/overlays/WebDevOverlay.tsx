@@ -49,8 +49,8 @@ export const WebDevOverlay: React.FC<Props> = (props) => {
                 database.
                 <br />
                 <br />
-                The app allows older men to request services that are provided
-                by younger users.
+                The app allows elderly persons to request services that are
+                provided by younger users.
                 <br />
                 This project has been developed in team, I've built the backend
                 and also worked on the Javascript part.
