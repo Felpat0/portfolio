@@ -160,7 +160,7 @@ export const Home: React.FC = () => {
               working={true}
               workingImage={rivenIcon}
               onClick={() => {
-                if (Date.now() - mouseDownTime < 100) {
+                if (Date.now() - mouseDownTime < 200) {
                   setCurrentOverlay(0);
                 }
               }}
@@ -172,7 +172,7 @@ export const Home: React.FC = () => {
               text={"Web Development Projects"}
               selected={true}
               onClick={() => {
-                if (Date.now() - mouseDownTime < 100) {
+                if (Date.now() - mouseDownTime < 200) {
                   setCurrentOverlay(1);
                 }
               }}
@@ -183,7 +183,7 @@ export const Home: React.FC = () => {
               image={videogamesSquare}
               text={"Videogames Projects"}
               onClick={() => {
-                if (Date.now() - mouseDownTime < 100) {
+                if (Date.now() - mouseDownTime < 200) {
                   setCurrentOverlay(2);
                 }
               }}
@@ -195,7 +195,7 @@ export const Home: React.FC = () => {
               text={"Machine Learning Projects"}
               selected={true}
               onClick={() => {
-                if (Date.now() - mouseDownTime < 100) {
+                if (Date.now() - mouseDownTime < 200) {
                   setCurrentOverlay(3);
                 }
               }}
