@@ -1,5 +1,4 @@
-import { Center, Flex, Stack, Text } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
+import { Center, Stack, Text } from "@chakra-ui/react";
 import { OverlayVoiceType } from "../../types";
 import { DetailsOverlay } from "../DetailsOverlay";
 
@@ -20,7 +19,6 @@ type Props = {
 };
 
 export const WebDevOverlay: React.FC<Props> = (props) => {
-  const { t } = useTranslation();
   const voices: OverlayVoiceType[] = [
     {
       title: "goGrandpa",
@@ -72,6 +70,7 @@ export const WebDevOverlay: React.FC<Props> = (props) => {
                     paddingRight: "2vw",
                     paddingTop: props.screenWidth <= 557 ? "2rem" : "0",
                   }}
+                  alt={"goGrandpa screen"}
                 />
               </Center>
             </Center>
@@ -128,6 +127,7 @@ export const WebDevOverlay: React.FC<Props> = (props) => {
                     paddingRight: "2vw",
                     paddingTop: props.screenWidth <= 557 ? "2rem" : "0",
                   }}
+                  alt={"Kuffy screen"}
                 />
               </Center>
             </Center>
@@ -149,7 +149,6 @@ export const WebDevOverlay: React.FC<Props> = (props) => {
               height: "100%",
             }}
           >
-            {" "}
             <div>
               <Text fontSize={"lg"} textAlign={"center"}>
                 <strong>OltreStore</strong> is a webapp developed in{" "}
@@ -173,6 +172,7 @@ export const WebDevOverlay: React.FC<Props> = (props) => {
                     paddingRight: "2vw",
                     paddingTop: props.screenWidth <= 557 ? "2rem" : "0",
                   }}
+                  alt={"OltreStore screen"}
                 />
               </Center>
             </Center>
@@ -217,6 +217,7 @@ export const WebDevOverlay: React.FC<Props> = (props) => {
                     paddingRight: "2vw",
                     paddingTop: props.screenWidth <= 557 ? "2rem" : "0",
                   }}
+                  alt={"Notes screen"}
                 />
               </Center>
             </Center>

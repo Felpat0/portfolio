@@ -30,7 +30,7 @@ export const Activities: React.FC<Props> = (props) => {
               padding={"0.5rem"}
               bg={activity.bg}
             >
-              <img src={activity.image} />
+              <img src={activity.image} alt={"Activity"} />
             </Flex>
             <Stack justifyContent={"center"}>
               <Text fontSize={"lg"}>

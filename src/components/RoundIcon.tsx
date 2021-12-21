@@ -24,7 +24,7 @@ export const RoundIcon: React.FC<Props> = (props) => {
   let imgWidth = "5.5rem";
   let imgHeight = "5.5rem";
 
-  if (props.variant == "bottomBar") {
+  if (props.variant === "bottomBar") {
     width = "7rem";
     height = "7rem";
     imgWidth = "4rem";
@@ -47,7 +47,7 @@ export const RoundIcon: React.FC<Props> = (props) => {
           onMouseLeave={() => setBackground("")}
           onClick={props.onClick}
         >
-          <a href={props.href} target="_blank">
+          <a href={props.href} target="_blank" rel="noreferrer">
             <StyledFlex
               bg={backgroundColor}
               padding={"1rem"}
@@ -82,7 +82,7 @@ export const RoundIcon: React.FC<Props> = (props) => {
           onMouseLeave={() => setBackground("")}
           onClick={props.onClick}
         >
-          <a href={props.href} target="_blank">
+          <a href={props.href} target="_blank" rel="noreferrer">
             <StyledFlexBottomBar
               bg={backgroundColor}
               w={width}

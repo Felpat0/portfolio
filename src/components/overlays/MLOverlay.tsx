@@ -1,5 +1,4 @@
-import { Center, Flex, Stack, Text } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
+import { Center, Stack, Text } from "@chakra-ui/react";
 import { OverlayVoiceType } from "../../types";
 import { DetailsOverlay } from "../DetailsOverlay";
 
@@ -17,7 +16,6 @@ type Props = {
 };
 
 export const MLOverlay: React.FC<Props> = (props) => {
-  const { t } = useTranslation();
   const voices: OverlayVoiceType[] = [
     {
       title: "Realistic images generation",
@@ -79,6 +77,7 @@ export const MLOverlay: React.FC<Props> = (props) => {
                     paddingRight: "2vw",
                     paddingTop: props.screenWidth <= 557 ? "2rem" : "0",
                   }}
+                  alt={"DCGAN screen"}
                 />
               </Center>
             </Center>

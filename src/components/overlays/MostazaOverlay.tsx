@@ -1,5 +1,4 @@
 import { Center, Flex, Stack, Text } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
 import { OverlayVoiceType } from "../../types";
 import { DetailsOverlay } from "../DetailsOverlay";
 
@@ -26,7 +25,6 @@ type Props = {
 };
 
 export const MostazaOverlay: React.FC<Props> = (props) => {
-  const { t } = useTranslation();
   const voices: OverlayVoiceType[] = [
     {
       title: "Mostaza",
@@ -45,28 +43,25 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
                 <Stack>
                   <Center>
                     <Flex w={"2rem"} h={"2rem"} marginRight={"1rem"}>
-                      <img src={CodeIcon} />
+                      <img src={CodeIcon} alt={"Code icon"} />
                     </Flex>
                     <Text fontSize={"4xl"}>My stack</Text>
                   </Center>
                   <Center>
                     <Flex w={"2.5rem"} h={"auto"}>
-                      {" "}
-                      <img src={ReactIcon} />
+                      <img src={ReactIcon} alt={"React icon"} />
                     </Flex>
                     <Text fontSize={"lg"}>React</Text>
                   </Center>
                   <Center>
                     <Flex w={"1.7rem"} h={"auto"} marginRight={"0.5rem"}>
-                      {" "}
-                      <img src={NodeIcon} />
+                      <img src={NodeIcon} alt={"Node icon"} />
                     </Flex>
                     <Text fontSize={"lg"}>NodeJS</Text>
                   </Center>
                   <Center>
                     <Flex w={"2rem"} h={"auto"} marginRight={"0.5rem"}>
-                      {" "}
-                      <img src={GraphSqlIcon} />
+                      <img src={GraphSqlIcon} alt={"Graphsql icon"} />
                     </Flex>
                     <Text fontSize={"lg"}>GraphSQL</Text>
                   </Center>
@@ -76,28 +71,25 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
                 <Stack>
                   <Center>
                     <Flex w={"2rem"} h={"2rem"} marginRight={"1rem"}>
-                      <img src={ToolsIcon} />
+                      <img src={ToolsIcon} alt={"Tools icon"} />
                     </Flex>
                     <Text fontSize={"4xl"}>Tools</Text>
                   </Center>
                   <Center>
                     <Flex w={"2.5rem"} h={"auto"} marginRight={"0.5rem"}>
-                      {" "}
-                      <img src={PrismaIcon} />
+                      <img src={PrismaIcon} alt={"Prisma icon"} />
                     </Flex>
                     <Text fontSize={"lg"}>Prisma</Text>
                   </Center>
                   <Center>
                     <Flex w={"2.7rem"} h={"auto"} marginRight={"0.5rem"}>
-                      {" "}
-                      <img src={DockerIcon} />
+                      <img src={DockerIcon} alt={"Docker icon"} />
                     </Flex>
                     <Text fontSize={"lg"}>Docker</Text>
                   </Center>
                   <Center>
                     <Flex w={"1.7rem"} h={"auto"}>
-                      {" "}
-                      <img src={BitBucketIcon} />
+                      <img src={BitBucketIcon} alt={"Bitbucket icon"} />
                     </Flex>
                     <Text fontSize={"lg"} marginLeft={"0.5rem"}>
                       BitBucket
@@ -110,7 +102,11 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
               w={props.screenWidth <= 557 ? "100%" : "50%"}
               paddingTop={props.screenWidth <= 557 ? "4rem" : "0"}
             >
-              <a href={"https://simulatoresuperbonus.it/"} target="_blank">
+              <a
+                href={"https://simulatoresuperbonus.it/"}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <Center
                   w={"100%"}
                   flexDirection={props.screenWidth <= 557 ? "column" : "row"}
@@ -118,10 +114,12 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
                   <img
                     src={SuperbonusMobile}
                     width={props.screenWidth <= 557 ? "90%" : "25%"}
+                    alt={"Simulatore Superbonus mobile screen"}
                   />
                   <img
                     src={SuperbonusDesktop}
                     width={props.screenWidth <= 557 ? "90%" : "75%"}
+                    alt={"Simulatore Superbonus desktop screen"}
                   />
                 </Center>
                 <Text textAlign={"center"} fontSize={"xl"}>

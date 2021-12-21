@@ -50,6 +50,7 @@ export const ProfileOverlay: React.FC<Props> = (props) => {
       );
       voicesContents.push(voice.content);
     }
+    return voice;
   });
 
   return (
@@ -168,8 +169,11 @@ export const ProfileOverlay: React.FC<Props> = (props) => {
           <Flex h={props.screenWidth <= 557 ? "10vh" : ""}>
             <Center w={props.screenWidth <= 557 ? "100%" : "10%"} h={"100%"}>
               <img
-                style={{ width: props.screenWidth <= 557 ? "25%" : "13vh" }}
+                style={{
+                  width: props.screenWidth <= 557 ? "25%" : "13vh",
+                }}
                 src={switchIcon}
+                alt={"Switch"}
               />
             </Center>
           </Flex>
@@ -220,10 +224,4 @@ const StyledCenter2 = styled(Center)`
   left: 50%;
   transform: translateX(-50%);
   top: 5%;
-`;
-
-const StyledImg = styled.img`
-  width: 100%;
-  height: 100%;
-  clip-path: square(100%);
 `;

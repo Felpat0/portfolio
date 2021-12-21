@@ -1,19 +1,15 @@
 import { Flex, Stack } from "@chakra-ui/react";
 import React from "react";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
 type Props = {};
 export const ScrollableContainer: React.FC<Props> = (props) => {
-  const [mounted, setMounted] = useState(false);
   const [dragInitialPosition, setDragInitialPosition] = useState(0);
   const [initialScroll, setInitialScroll] = useState(0);
   const [isMouseDown, setIsMouseDown] = useState(false);
   let ref = React.useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
   if (ref.current) {
     ref.current.addEventListener("wheel", (evt) => {
       evt.preventDefault();

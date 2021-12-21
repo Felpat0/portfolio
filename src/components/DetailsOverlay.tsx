@@ -46,6 +46,7 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
       );
       voicesContents.push(voice.content);
     }
+    return voice;
   });
   //Add fade in animation
   return (
@@ -169,6 +170,7 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
               <img
                 style={{ width: props.screenWidth <= 557 ? "25%" : "13vh" }}
                 src={switchIcon}
+                alt={"Switch"}
               />
             </Center>
           </Flex>

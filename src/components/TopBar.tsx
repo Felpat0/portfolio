@@ -1,6 +1,6 @@
 import { Flex, Spacer, Text } from "@chakra-ui/react";
 import { RoundIcon } from "./RoundIcon";
-import icon from "./../assets/icons/riven.jpg";
+import icon from "./../assets/icons/profileIcon.jpg";
 import { useState } from "react";
 
 import batteryIcon from "./../assets/icons/battery.png";
@@ -69,6 +69,7 @@ export const TopBar: React.FC<Props> = (props) => {
       <img
         src={wifiIcon}
         style={{ marginRight: "1.5vw", width: wifiSize, height: wifiSize }}
+        alt={"Wifi"}
       />
       {percentageDisplay ? (
         <>
@@ -91,6 +92,7 @@ export const TopBar: React.FC<Props> = (props) => {
       <img
         src={batteryIcon}
         style={{ width: batterySize, height: batterySize }}
+        alt={"Battery icon"}
       />
     </Flex>
   );

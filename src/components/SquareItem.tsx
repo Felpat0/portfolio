@@ -31,7 +31,7 @@ export const ItemSquare: React.FC<Props> = (props) => {
   let textVisibility = "hidden";
 
   if (props.backgroundColor) backgroundColor = props.backgroundColor;
-  if (props.text && opacity == 1) textVisibility = "visible";
+  if (props.text && opacity === 1) textVisibility = "visible";
 
   if (!props.image)
     return (
@@ -61,7 +61,7 @@ export const ItemSquare: React.FC<Props> = (props) => {
             minW={size}
             minH={size}
             style={props.style}
-          ></StyledFlexNoImage>
+          />
         </Flex>
       </Stack>
     );
@@ -103,8 +103,11 @@ export const ItemSquare: React.FC<Props> = (props) => {
                   height: size,
                   minHeight: size,
                   clipPath: "square(100%)",
+                  objectFit: "cover",
+                  objectPosition: "center",
                 }}
                 src={props.image}
+                alt={"Current work"}
               />
               <Flex marginRight={"-" + size} w={size} h={size}>
                 <Center
@@ -177,6 +180,7 @@ export const ItemSquare: React.FC<Props> = (props) => {
                   clipPath: "square(100%)",
                 }}
                 src={props.image}
+                alt={"Projects"}
               />
             </Flex>
           </StyledFlexWithImage>

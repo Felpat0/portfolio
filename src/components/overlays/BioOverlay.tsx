@@ -1,5 +1,4 @@
 import { Center, Flex, Stack, Text } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
 import { OverlayVoiceType } from "../../types";
 
 import { ProfileOverlay } from "../ProfileOverlay";
@@ -19,7 +18,6 @@ type Props = {
 };
 
 export const BioOverlay: React.FC<Props> = (props) => {
-  const { t } = useTranslation();
   const voices: OverlayVoiceType[] = [
     {
       title: "About me",
@@ -38,7 +36,15 @@ export const BioOverlay: React.FC<Props> = (props) => {
                 w={props.screenWidth <= 557 ? "60vw" : "10vw"}
                 height={props.screenWidth <= 557 ? "60vw" : "10vw"}
               >
-                <img src={props.icon} width={"100%"} />
+                <img
+                  src={props.icon}
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "center",
+                  }}
+                  width={"100%"}
+                  alt={"Federico Cattini"}
+                />
               </Flex>
             </Center>
             <Stack

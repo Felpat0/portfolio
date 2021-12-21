@@ -1,6 +1,6 @@
 import { Flex, Center, Text, Stack } from "@chakra-ui/react";
-import { useEffect, useMemo, useState } from "react";
-import { fadeInUp, fadeInDown, fadeIn, slideInDown } from "react-animations";
+import { useEffect, useState } from "react";
+import { fadeIn, slideInDown } from "react-animations";
 import styled, { keyframes } from "styled-components";
 
 import SwitchLeft from "./../assets/switchLogoLeft.png";
@@ -10,8 +10,7 @@ type Props = {
   screenHeight: number;
   screenWidth: number;
 };
-const fadeInUpAnimation = keyframes`${fadeInUp}`;
-const fadeInDownAnimation = keyframes`${fadeInDown}`;
+
 const fadeInAnimation = keyframes`${fadeIn}`;
 const slideInDownAnimation = keyframes`${slideInDown}`;
 
@@ -29,10 +28,18 @@ export const Loading: React.FC<Props> = (props) => {
         <Center>
           <Center w={props.screenWidth <= 557 ? "70vw" : "15vw"}>
             <Flex w={"50%"}>
-              <img src={SwitchLeft} style={{ paddingRight: "0.5rem" }} />
+              <img
+                src={SwitchLeft}
+                style={{ paddingRight: "0.5rem" }}
+                alt={"Federico Cattini"}
+              />
             </Flex>
             <SwitchRightFlex w={"50%"}>
-              <img src={SwitchRight} style={{ paddingLeft: "0.5rem" }} />
+              <img
+                src={SwitchRight}
+                style={{ paddingLeft: "0.5rem" }}
+                alt={"Full Stack Engineer"}
+              />
             </SwitchRightFlex>
           </Center>
         </Center>
@@ -83,13 +90,4 @@ const FadeInNameFlex = styled(Center)`
 const SwitchRightFlex = styled(Flex)`
   color: white;
   animation: 1.5s ${slideInDownAnimation};
-`;
-
-const FadeInFlex1 = styled(Center)`
-  color: white;
-  animation: 3s ${fadeInUpAnimation};
-`;
-const FadeInFlex2 = styled(Center)`
-  color: white;
-  animation: 3s ${fadeInDownAnimation};
 `;

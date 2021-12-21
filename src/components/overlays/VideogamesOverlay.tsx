@@ -1,5 +1,4 @@
-import { Center, Flex, Stack, Text } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
+import { Center, Stack, Text } from "@chakra-ui/react";
 import { OverlayVoiceType } from "../../types";
 import { DetailsOverlay } from "../DetailsOverlay";
 
@@ -18,7 +17,6 @@ type Props = {
 };
 
 export const VideogamesOverlay: React.FC<Props> = (props) => {
-  const { t } = useTranslation();
   const voices: OverlayVoiceType[] = [
     {
       title: "PacMan",
@@ -60,6 +58,7 @@ export const VideogamesOverlay: React.FC<Props> = (props) => {
                     paddingRight: "2vw",
                     paddingTop: props.screenWidth <= 557 ? "2rem" : "0",
                   }}
+                  alt={"PacMan screen"}
                 />
               </Center>
             </Center>
@@ -81,7 +80,6 @@ export const VideogamesOverlay: React.FC<Props> = (props) => {
               height: "100%",
             }}
           >
-            {" "}
             <Center flexDirection={"column"}>
               <Text fontSize={"lg"} textAlign={"center"}>
                 For a university project I've developed a{" "}
@@ -133,6 +131,7 @@ export const VideogamesOverlay: React.FC<Props> = (props) => {
                     paddingRight: "2vw",
                     paddingTop: props.screenWidth <= 557 ? "2rem" : "0",
                   }}
+                  alt={"CMD Roguelike screen"}
                 />
               </Center>
             </Center>

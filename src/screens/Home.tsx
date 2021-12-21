@@ -1,4 +1,4 @@
-import { Center, Divider, Flex, Spacer, Stack, Text } from "@chakra-ui/react";
+import { Center, Flex, Stack } from "@chakra-ui/react";
 import { theme } from "../assets/theme";
 import { ItemSquare } from "../components/SquareItem";
 import { RoundIcon } from "../components/RoundIcon";
@@ -14,8 +14,7 @@ import linkedinIcon from "./../assets/icons/linkedin.png";
 import githubIcon from "./../assets/icons/github.svg";
 import mailIcon from "./../assets/icons/mailOrange.svg";
 import switchIcon from "./../assets/icons/switch.png";
-import rivenIcon from "./../assets/icons/riven.jpg";
-import infoIcon from "./../assets/icons/info.png";
+import profileIcon from "./../assets/icons/profileIcon.jpg";
 
 import { Loading } from "../components/Loading";
 import { useCallback, useEffect, useState } from "react";
@@ -57,8 +56,8 @@ export const Home: React.FC = () => {
 
   const toggleOverlay = useCallback(
     (overlayId: number) => {
-      if (overlayId != null && overlayId != undefined) {
-        if (currentOverlay != -1) setCurrentOverlay(-1);
+      if (overlayId !== null && overlayId !== undefined) {
+        if (currentOverlay !== -1) setCurrentOverlay(-1);
         else setCurrentOverlay(overlayId);
       } else setCurrentOverlay(-1);
     },
@@ -147,7 +146,7 @@ export const Home: React.FC = () => {
             screenWidth={width}
             toggleDisplay={toggleOverlay}
             overlayId={4}
-            icon={rivenIcon}
+            icon={profileIcon}
             title={"Federico Cattini"}
           />
         </Flex>
@@ -158,7 +157,7 @@ export const Home: React.FC = () => {
               text={"Mostaza"}
               backgroundColor={"#50585a"}
               working={true}
-              workingImage={rivenIcon}
+              workingImage={profileIcon}
               onClick={() => {
                 if (Date.now() - mouseDownTime < 200) {
                   setCurrentOverlay(0);
@@ -262,6 +261,7 @@ export const Home: React.FC = () => {
             <img
               style={{ width: width <= 557 ? "25%" : "13vh" }}
               src={switchIcon}
+              alt={"Switch icon"}
             />
           </Center>
         </Flex>

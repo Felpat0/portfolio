@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  Center,
-  CloseButton,
-  Flex,
-  Spacer,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Center, Flex, Text } from "@chakra-ui/react";
 import styled from "styled-components";
 
 import { theme } from "../assets/theme";
