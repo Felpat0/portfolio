@@ -103,8 +103,6 @@ export const ItemSquare: React.FC<Props> = (props) => {
                   height: size,
                   minHeight: size,
                   clipPath: "square(100%)",
-                  objectFit: "cover",
-                  objectPosition: "center",
                 }}
                 src={props.image}
                 alt={"Current work"}

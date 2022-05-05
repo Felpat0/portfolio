@@ -2,8 +2,8 @@ import { Center, Flex, Stack, Text } from "@chakra-ui/react";
 import { OverlayVoiceType } from "../../types";
 import { DetailsOverlay } from "../DetailsOverlay";
 
-import SuperbonusMobile from "../../assets/overlays/superbonusResized-phoneMockup.png";
-import SuperbonusDesktop from "../../assets/overlays/superbonusResized-pcMockup.png";
+import SuperbonusMobile from "../../assets/overlays/superbonus-phoneMockup.png";
+import SuperbonusDesktop from "../../assets/overlays/superbonus-pcMockup.png";
 import CodeIcon from "../../assets/icons/code.png";
 import ReactIcon from "../../assets/icons/react.svg";
 import NodeIcon from "../../assets/icons/node.svg";
@@ -103,7 +103,7 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
               paddingTop={props.screenWidth <= 557 ? "4rem" : "0"}
             >
               <a
-                href={"https://simulatoresuperbonus.it/"}
+                href={"https://www.tele-dolomiti.it/"}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -114,16 +114,16 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
                   <img
                     src={SuperbonusMobile}
                     width={props.screenWidth <= 557 ? "90%" : "25%"}
-                    alt={"Simulatore Superbonus mobile screen"}
+                    alt={"Tele-Dolomiti mobile screen"}
                   />
                   <img
                     src={SuperbonusDesktop}
                     width={props.screenWidth <= 557 ? "90%" : "75%"}
-                    alt={"Simulatore Superbonus desktop screen"}
+                    alt={"Tele-Dolomiti desktop screen"}
                   />
                 </Center>
                 <Text textAlign={"center"} fontSize={"xl"}>
-                  Last project: <strong>Superbonus 110% Simulator</strong>
+                  Last project: <strong>Tele-Dolomiti</strong>
                 </Text>
               </a>
             </Stack>
