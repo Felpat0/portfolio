@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.b8c321ea.chunk.css",
-    "main.js": "/portfolio/static/js/main.2e123184.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.2e123184.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.76a26396.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.76a26396.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.6b4c86f4.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.6b4c86f4.js.map",
     "static/js/2.0433ff6e.chunk.js": "/portfolio/static/js/2.0433ff6e.chunk.js",
@@ -30,8 +30,8 @@
     "static/media/prisma.8cfb0039.png": "/portfolio/static/media/prisma.8cfb0039.png",
     "static/media/profileIcon.5b0bdad5.jpg": "/portfolio/static/media/profileIcon.5b0bdad5.jpg",
     "static/media/react.3adc4d15.svg": "/portfolio/static/media/react.3adc4d15.svg",
-    "static/media/superbonusResized-pcMockup.e6a06ba5.png": "/portfolio/static/media/superbonusResized-pcMockup.e6a06ba5.png",
-    "static/media/superbonusResized-phoneMockup.40b6d822.png": "/portfolio/static/media/superbonusResized-phoneMockup.40b6d822.png",
+    "static/media/superbonus-pcMockup.8b92f712.png": "/portfolio/static/media/superbonus-pcMockup.8b92f712.png",
+    "static/media/superbonus-phoneMockup.89d01901.png": "/portfolio/static/media/superbonus-phoneMockup.89d01901.png",
     "static/media/tools.bbebcc37.png": "/portfolio/static/media/tools.bbebcc37.png",
     "static/media/videogames.5609619b.png": "/portfolio/static/media/videogames.5609619b.png",
     "static/media/webdev.1b88966b.png": "/portfolio/static/media/webdev.1b88966b.png"
@@ -40,6 +40,6 @@
     "static/js/runtime-main.6b4c86f4.js",
     "static/js/2.0433ff6e.chunk.js",
     "static/css/main.b8c321ea.chunk.css",
-    "static/js/main.2e123184.chunk.js"
+    "static/js/main.76a26396.chunk.js"
   ]
 }
