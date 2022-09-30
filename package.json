@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "1.0.2",
-  "homepage": "http://felpat0.github.io/portfolio",
+  "homepage": "https://federicocattini.dev",
   "private": true,
   "dependencies": {
     "@chakra-ui/react": "^1.6.5",
