@@ -9,8 +9,6 @@ import { UserDataStore } from "../stores/UserDataStore";
 import "../i18n";
 import { Home } from "./Home";
 
-import theme from "../ChakraUI/theme";
-import Fonts from "../components/Fonts";
 import { Projects } from "./Projects";
 
 export const Root: React.FC = () => {
@@ -24,8 +22,7 @@ export const Root: React.FC = () => {
 
   return (
     <StoresContext.Provider value={stores}>
-      <ChakraProvider theme={theme}>
-        <Fonts />
+      <ChakraProvider>
         <Router>
           <Route exact path={"/"} component={Home} />
           <Route exact path={"/projects"} component={Projects} />
