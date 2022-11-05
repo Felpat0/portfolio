@@ -1,11 +1,11 @@
 import { Center, Flex, Stack } from "@chakra-ui/react";
 import { theme } from "../assets/theme";
-import { ItemSquare } from "../components/SquareItem";
+import { SquareItem } from "../components/SquareItem";
 import { RoundIcon } from "../components/RoundIcon";
 import { ScrollableContainer } from "../components/ScrollableContainer";
 import { TopBar } from "../components/TopBar";
 
-import mostazaSquare from "./../assets/squares/mostaza.svg";
+import sisalSquare from "./../assets/squares/sisal.png";
 import webDevSquare from "./../assets/squares/webdev.png";
 import videogamesSquare from "./../assets/squares/videogames.png";
 import mlSquare from "./../assets/squares/machineLearning.png";
@@ -18,7 +18,7 @@ import profileIcon from "./../assets/icons/profileIcon.jpg";
 
 import { Loading } from "../components/Loading";
 import { useCallback, useEffect, useState } from "react";
-import { MostazaOverlay } from "../components/overlays/MostazaOverlay";
+import { SisalOverlay } from "../components/overlays/SisalOverlay";
 import { WebDevOverlay } from "../components/overlays/WebDevOverlay";
 import { VideogamesOverlay } from "../components/overlays/VideogamesOverlay";
 import { MLOverlay } from "../components/overlays/MLOverlay";
@@ -103,15 +103,15 @@ export const Home: React.FC = () => {
             toggleOverlay={toggleOverlay}
             overlayId={4}
           />
-          <MostazaOverlay
+          <SisalOverlay
             display={currentOverlay === 0 ? "block" : "none"}
             screenHeight={height}
             screenWidth={width}
             toggleDisplay={toggleOverlay}
             overlayId={0}
-            icon={mostazaSquare}
-            title={"Mostaza"}
-            subtitle={"Currently working | Full Stack Engineer"}
+            icon={sisalSquare}
+            title={"Sisal"}
+            subtitle={"Currently working | React Developer"}
           />
           <WebDevOverlay
             display={currentOverlay === 1 ? "block" : "none"}
@@ -152,10 +152,10 @@ export const Home: React.FC = () => {
         </Flex>
         <Flex h={"60vh"} w={"100%"} paddingTop={width <= 557 ? "0vh" : "3vh"}>
           <ScrollableContainer>
-            <ItemSquare
-              image={mostazaSquare}
-              text={"Mostaza"}
-              backgroundColor={"#50585a"}
+            <SquareItem
+              image={sisalSquare}
+              text={"Sisal"}
+              backgroundColor={"rgba(255, 255, 255, 0.9)"}
               working={true}
               workingImage={profileIcon}
               onClick={() => {
@@ -166,7 +166,7 @@ export const Home: React.FC = () => {
               screenHeight={height}
               screenWidth={width}
             />
-            <ItemSquare
+            <SquareItem
               image={webDevSquare}
               text={"Web Development Projects"}
               selected={true}
@@ -178,7 +178,7 @@ export const Home: React.FC = () => {
               screenHeight={height}
               screenWidth={width}
             />
-            <ItemSquare
+            <SquareItem
               image={videogamesSquare}
               text={"Videogames Projects"}
               onClick={() => {
@@ -189,7 +189,7 @@ export const Home: React.FC = () => {
               screenHeight={height}
               screenWidth={width}
             />
-            <ItemSquare
+            <SquareItem
               image={mlSquare}
               text={"Machine Learning Projects"}
               selected={true}
@@ -201,13 +201,13 @@ export const Home: React.FC = () => {
               screenHeight={height}
               screenWidth={width}
             />
-            <ItemSquare screenHeight={height} screenWidth={width} />
-            <ItemSquare screenHeight={height} screenWidth={width} />
-            <ItemSquare screenHeight={height} screenWidth={width} />
-            <ItemSquare screenHeight={height} screenWidth={width} />
-            <ItemSquare screenHeight={height} screenWidth={width} />
-            <ItemSquare screenHeight={height} screenWidth={width} />
-            <ItemSquare screenHeight={height} screenWidth={width} />
+            <SquareItem screenHeight={height} screenWidth={width} />
+            <SquareItem screenHeight={height} screenWidth={width} />
+            <SquareItem screenHeight={height} screenWidth={width} />
+            <SquareItem screenHeight={height} screenWidth={width} />
+            <SquareItem screenHeight={height} screenWidth={width} />
+            <SquareItem screenHeight={height} screenWidth={width} />
+            <SquareItem screenHeight={height} screenWidth={width} />
           </ScrollableContainer>
         </Flex>
         <Stack

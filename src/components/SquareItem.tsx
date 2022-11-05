@@ -17,7 +17,7 @@ type Props = {
   screenWidth?: any;
 };
 
-export const ItemSquare: React.FC<Props> = (props) => {
+export const SquareItem: React.FC<Props> = (props) => {
   const [opacity, setOpacity] = useState(0);
 
   let size = "45vh";
@@ -140,7 +140,6 @@ export const ItemSquare: React.FC<Props> = (props) => {
   else
     return (
       <Stack>
-        {/* @ts-ignore */}
         <Flex
           color={theme.colors.textAquaBlue}
           fontSize={"2xl"}
