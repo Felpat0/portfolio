@@ -178,7 +178,7 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
       </StyledCenter2>
       <ExitCenter
         onClick={() => props.toggleDisplay(props.overlayId)}
-      ></ExitCenter>
+      />
     </StyledCenter>
   );
 };

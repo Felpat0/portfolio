@@ -1,6 +1,6 @@
 import { Center, Flex, Stack, Text } from "@chakra-ui/react";
 import { theme } from "../assets/theme";
-import { activities } from "../stores/activities";
+import { activities } from "../config/activities";
 
 type Props = {
   activities: any[];
@@ -27,7 +27,6 @@ export const Activities: React.FC<Props> = (props) => {
               border={"1px solid black"}
               marginRight={"1rem"}
               alignItems={"center"}
-              padding={"0.5rem"}
               bg={activity.bg}
             >
               <img src={activity.image} alt={"Activity"} />

@@ -4,7 +4,7 @@ import { OverlayVoiceType } from "../../types";
 import { ProfileOverlay } from "../ProfileOverlay";
 import { theme } from "../../assets/theme";
 import { Activities } from "../Activities";
-import { activities } from "../../stores/activities";
+import { activities } from "../../config/activities";
 
 type Props = {
   display?: string;
@@ -82,7 +82,7 @@ export const BioOverlay: React.FC<Props> = (props) => {
                 color={theme.colors.lightGrey}
                 paddingLeft={props.screenWidth <= 557 ? "1rem" : "2rem"}
               >
-                Full Stack Engineer
+                Front-End Developer
               </Text>
               <Center
                 h={"0.2rem"}
@@ -129,8 +129,7 @@ export const BioOverlay: React.FC<Props> = (props) => {
               <strong>Geometry</strong> and <strong>Algebra</strong>. <br />
               <br /> I've started coding at the age of 12, coding is my passion
               and I've studied it at high school and at the University of Roma
-              Tor Vergata, I'm currently working at Mostaza as a Full Stack
-              Engineer.
+              Tor Vergata, I'm currently working at Sisal as a Front-End Developer.
             </Text>
             <Center h={"0.2rem"} paddingTop={"1rem"}>
               <Flex

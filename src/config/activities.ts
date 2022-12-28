@@ -1,12 +1,18 @@
+import sisalSquare from "./../assets/squares/sisal.png";
 import mostazaSquare from "./../assets/squares/mostaza.svg";
 import nodesLogo from "./../assets/nodesLogo.png";
 import outplayedLogo from "./../assets/outplayedLogo.png";
 
 export const activities = [
   {
+    image: sisalSquare,
+    title: "Sisal",
+    subtitle: "Front-End Developer (2022/07 - currently working)",
+  },
+  {
     image: mostazaSquare,
     title: "Mostaza",
-    subtitle: "Full Stack Engineer (2021/06 - currently working)",
+    subtitle: "Full Stack Engineer (2021/06 - 2022/07)",
   },
   {
     image: nodesLogo,

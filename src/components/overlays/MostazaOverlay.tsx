@@ -36,7 +36,7 @@ export const MostazaOverlay: React.FC<Props> = (props) => {
           >
             <Stack w={props.screenWidth <= 557 ? "100%" : "50%"}>
               <Text fontSize={"xl"} textAlign={"center"}>
-                I'm currently working at Mostaza as a Full Stack Engineer.
+                I'm currently working at Sisal as a Front-End Developer.
               </Text>
               <br />
               <Center>

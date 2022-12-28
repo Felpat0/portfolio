@@ -38,7 +38,7 @@ export const Loading: React.FC<Props> = (props) => {
               <img
                 src={SwitchRight}
                 style={{ paddingLeft: "0.5rem" }}
-                alt={"Full Stack Engineer"}
+                alt={"Front-End Developer"}
               />
             </SwitchRightFlex>
           </Center>
@@ -58,7 +58,7 @@ export const Loading: React.FC<Props> = (props) => {
             fontWeight={"bold"}
             textAlign={"center"}
           >
-            {"Full Stack Engineer"}
+            {"Front-End Developer"}
           </Text>
         </Center>
         {showNext ? (
@@ -70,7 +70,7 @@ export const Loading: React.FC<Props> = (props) => {
                 textAlign={"center"}
                 color={"white"}
               >
-                {"Full Stack Engineer"}
+                {"Front-End Developer"}
               </Text>
             </Center>
           </>

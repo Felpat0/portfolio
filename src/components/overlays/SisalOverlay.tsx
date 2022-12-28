@@ -4,12 +4,11 @@ import { DetailsOverlay } from "../DetailsOverlay";
 
 import CodeIcon from "../../assets/icons/code.png";
 import ReactIcon from "../../assets/icons/react.svg";
-import NodeIcon from "../../assets/icons/node.svg";
-import GraphSqlIcon from "../../assets/icons/graphsql.png";
+import JestIcon from "../../assets/icons/jest.png";
+import StorybookIcon from "../../assets/icons/storybook.png";
 import ToolsIcon from "../../assets/icons/tools.png";
-import PrismaIcon from "../../assets/icons/prisma.png";
-import DockerIcon from "../../assets/icons/docker.png";
-import BitBucketIcon from "../../assets/icons/bitbucket.png";
+import VSCodeIcon from "../../assets/icons/vscode.png";
+import GitlabIcon from "../../assets/icons/gitlab.png";
 
 type Props = {
   display?: string;
@@ -40,58 +39,50 @@ export const SisalOverlay: React.FC<Props> = (props) => {
               <Center>
                 <Stack>
                   <Center>
-                    <Flex w={"2rem"} h={"2rem"} marginRight={"1rem"}>
+                    <Flex w={"auto"} h={"2rem"} marginRight={"1rem"}>
                       <img src={CodeIcon} alt={"Code icon"} />
                     </Flex>
                     <Text fontSize={"4xl"}>My stack</Text>
                   </Center>
                   <Center>
-                    <Flex w={"2.5rem"} h={"auto"}>
-                      <img src={ReactIcon} alt={"React icon"} />
+                    <Flex w={"auto"} h={"2rem"}>
+                      <img src={ReactIcon} alt={"React"} />
                     </Flex>
                     <Text fontSize={"lg"}>React</Text>
                   </Center>
                   <Center>
-                    <Flex w={"1.7rem"} h={"auto"} marginRight={"0.5rem"}>
-                      <img src={NodeIcon} alt={"Node icon"} />
+                    <Flex w={"auto"} h={"2rem"} marginRight={"0.5rem"}>
+                      <img src={JestIcon} alt={"Jest"} />
                     </Flex>
-                    <Text fontSize={"lg"}>NodeJS</Text>
+                    <Text fontSize={"lg"}>Jest</Text>
                   </Center>
                   <Center>
-                    <Flex w={"2rem"} h={"auto"} marginRight={"0.5rem"}>
-                      <img src={GraphSqlIcon} alt={"Graphsql icon"} />
+                    <Flex w={"auto"} h={"2rem"} marginRight={"0.5rem"}>
+                      <img src={StorybookIcon} alt={"Storybook"} />
                     </Flex>
-                    <Text fontSize={"lg"}>GraphSQL</Text>
+                    <Text fontSize={"lg"}>Storybook</Text>
                   </Center>
                 </Stack>
               </Center>
               <Center paddingTop={props.screenWidth <= 557 ? "2rem" : "5rem"}>
                 <Stack>
                   <Center>
-                    <Flex w={"2rem"} h={"2rem"} marginRight={"1rem"}>
+                    <Flex w={"auto"} h={"2rem"} marginRight={"1rem"}>
                       <img src={ToolsIcon} alt={"Tools icon"} />
                     </Flex>
                     <Text fontSize={"4xl"}>Tools</Text>
                   </Center>
                   <Center>
-                    <Flex w={"2.5rem"} h={"auto"} marginRight={"0.5rem"}>
-                      <img src={PrismaIcon} alt={"Prisma icon"} />
+                    <Flex w={"auto"} h={"2rem"} marginRight={"0.5rem"}>
+                      <img src={VSCodeIcon} alt={"VS Code"} />
                     </Flex>
-                    <Text fontSize={"lg"}>Prisma</Text>
+                    <Text fontSize={"lg"}>VS Code</Text>
                   </Center>
                   <Center>
-                    <Flex w={"2.7rem"} h={"auto"} marginRight={"0.5rem"}>
-                      <img src={DockerIcon} alt={"Docker icon"} />
+                    <Flex w={"auto"} h={"2rem"} marginRight={"0.5rem"}>
+                      <img src={GitlabIcon} alt={"GitLab"} />
                     </Flex>
-                    <Text fontSize={"lg"}>Docker</Text>
-                  </Center>
-                  <Center>
-                    <Flex w={"1.7rem"} h={"auto"}>
-                      <img src={BitBucketIcon} alt={"Bitbucket icon"} />
-                    </Flex>
-                    <Text fontSize={"lg"} marginLeft={"0.5rem"}>
-                      BitBucket
-                    </Text>
+                    <Text fontSize={"lg"}>GitLab</Text>
                   </Center>
                 </Stack>
               </Center>
