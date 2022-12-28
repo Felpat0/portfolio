@@ -5,11 +5,6 @@ import { RoundIcon } from "../components/RoundIcon";
 import { ScrollableContainer } from "../components/ScrollableContainer";
 import { TopBar } from "../components/TopBar";
 
-import sisalSquare from "./../assets/squares/sisal.png";
-import webDevSquare from "./../assets/squares/webdev.png";
-import videogamesSquare from "./../assets/squares/videogames.png";
-import mlSquare from "./../assets/squares/machineLearning.png";
-
 import linkedinIcon from "./../assets/icons/linkedin.png";
 import githubIcon from "./../assets/icons/github.svg";
 import mailIcon from "./../assets/icons/mailOrange.svg";
@@ -18,14 +13,11 @@ import profileIcon from "./../assets/icons/profileIcon.jpg";
 
 import { Loading } from "../components/Loading";
 import { useCallback, useEffect, useState } from "react";
-import { SisalOverlay } from "../components/overlays/SisalOverlay";
-import { WebDevOverlay } from "../components/overlays/WebDevOverlay";
-import { VideogamesOverlay } from "../components/overlays/VideogamesOverlay";
-import { MLOverlay } from "../components/overlays/MLOverlay";
-import { BioOverlay } from "../components/overlays/BioOverlay";
 
 import { fadeIn } from "react-animations";
 import styled, { keyframes } from "styled-components";
+import { overlays } from "../config/overlays";
+import { Overlay } from "../components/Overlay";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 
@@ -53,6 +45,16 @@ export const Home: React.FC = () => {
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
+
+  const onSquareClick = useCallback(
+    (overlayId: number) => {
+      if (Date.now() - mouseDownTime < 200) {
+        if (currentOverlay !== -1) setCurrentOverlay(-1);
+        else setCurrentOverlay(overlayId);
+      }
+    },
+    [mouseDownTime, currentOverlay]
+  );
 
   const toggleOverlay = useCallback(
     (overlayId: number) => {
@@ -103,104 +105,32 @@ export const Home: React.FC = () => {
             toggleOverlay={toggleOverlay}
             overlayId={4}
           />
-          <SisalOverlay
-            display={currentOverlay === 0 ? "block" : "none"}
-            screenHeight={height}
-            screenWidth={width}
-            toggleDisplay={toggleOverlay}
-            overlayId={0}
-            icon={sisalSquare}
-            title={"Sisal"}
-            subtitle={"Currently working | React Developer"}
-          />
-          <WebDevOverlay
-            display={currentOverlay === 1 ? "block" : "none"}
-            screenHeight={height}
-            screenWidth={width}
-            toggleDisplay={toggleOverlay}
-            overlayId={1}
-            icon={webDevSquare}
-            title={"Web Dev Projects"}
-          />
-          <VideogamesOverlay
-            display={currentOverlay === 2 ? "block" : "none"}
-            screenHeight={height}
-            screenWidth={width}
-            toggleDisplay={toggleOverlay}
-            overlayId={2}
-            icon={videogamesSquare}
-            title={"Videogames Projects"}
-          />
-          <MLOverlay
-            display={currentOverlay === 3 ? "block" : "none"}
-            screenHeight={height}
-            screenWidth={width}
-            toggleDisplay={toggleOverlay}
-            overlayId={3}
-            icon={mlSquare}
-            title={"ML Projects"}
-          />
-          <BioOverlay
-            display={currentOverlay === 4 ? "block" : "none"}
-            screenHeight={height}
-            screenWidth={width}
-            toggleDisplay={toggleOverlay}
-            overlayId={4}
-            icon={profileIcon}
-            title={"Federico Cattini"}
-          />
+          {overlays.map((overlay, index) => (
+            <Overlay
+              {...overlay}
+              overlayId={index}
+              display={currentOverlay === index ? "block" : "none"}
+              screenHeight={height}
+              screenWidth={width}
+              toggleDisplay={toggleOverlay}
+              key={index}
+            />
+          ))}
         </Flex>
         <Flex h={"60vh"} w={"100%"} paddingTop={width <= 557 ? "0vh" : "3vh"}>
           <ScrollableContainer>
-            <SquareItem
-              image={sisalSquare}
-              text={"Sisal"}
-              backgroundColor={"rgba(255, 255, 255, 0.9)"}
-              working={true}
-              workingImage={profileIcon}
-              onClick={() => {
-                if (Date.now() - mouseDownTime < 200) {
-                  setCurrentOverlay(0);
-                }
-              }}
-              screenHeight={height}
-              screenWidth={width}
-            />
-            <SquareItem
-              image={webDevSquare}
-              text={"Web Development Projects"}
-              selected={true}
-              onClick={() => {
-                if (Date.now() - mouseDownTime < 200) {
-                  setCurrentOverlay(1);
-                }
-              }}
-              screenHeight={height}
-              screenWidth={width}
-            />
-            <SquareItem
-              image={videogamesSquare}
-              text={"Videogames Projects"}
-              onClick={() => {
-                if (Date.now() - mouseDownTime < 200) {
-                  setCurrentOverlay(2);
-                }
-              }}
-              screenHeight={height}
-              screenWidth={width}
-            />
-            <SquareItem
-              image={mlSquare}
-              text={"Machine Learning Projects"}
-              selected={true}
-              onClick={() => {
-                if (Date.now() - mouseDownTime < 200) {
-                  setCurrentOverlay(3);
-                }
-              }}
-              screenHeight={height}
-              screenWidth={width}
-            />
+            {overlays.map((overlay, index) => (
+              <SquareItem
+                {...overlay}
+                backgroundColor={"rgba(255, 255, 255, 0.9)"}
+                workingImage={profileIcon}
+                onClick={() => onSquareClick(index)}
+                screenHeight={height}
+                screenWidth={width}
+                key={index}
+              />
+            ))}
+
             <SquareItem screenHeight={height} screenWidth={width} />
             <SquareItem screenHeight={height} screenWidth={width} />
             <SquareItem screenHeight={height} screenWidth={width} />

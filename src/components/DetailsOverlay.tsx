@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   Center,
   CloseButton,
   Flex,
+  Select,
   Spacer,
   Stack,
   Text,
@@ -28,29 +29,46 @@ type Props = {
 
 export const DetailsOverlay: React.FC<Props> = (props) => {
   const [currentContentIndex, setCurrentContentIndex] = useState(0);
-  let voices: any[] = [];
-  let voicesContents: any[] = [];
 
-  props.voices?.map((voice, index) => {
-    if (voice) {
-      voices.push(
-        <Flex w={"100%"}>
-          <DetailsOverlayVoice
-            text={voice.title}
-            onClick={() => {
-              setCurrentContentIndex(index);
-            }}
-            isActive={index === currentContentIndex}
-          />
-        </Flex>
-      );
-      voicesContents.push(voice.content);
-    }
-    return voice;
-  });
-  //Add fade in animation
+  const voices = useMemo(
+    () =>
+      props.screenWidth <= 557 ? (
+        <Select
+          onChange={(value) =>
+            setCurrentContentIndex(Number(value.target.value))
+          }
+          style={{ marginBottom: "0.5rem" }}
+          value={currentContentIndex.toString()}
+        >
+          {props.voices?.map((voice, index) => (
+            <option value={index} key={index} style={{ color: "black" }}>
+              {voice.title}
+            </option>
+          )) || []}
+        </Select>
+      ) : (
+        props.voices?.map((voice, index) => (
+          <Flex w={"100%"} key={index}>
+            <DetailsOverlayVoice
+              text={voice.title}
+              onClick={() => {
+                setCurrentContentIndex(index);
+              }}
+              isActive={index === currentContentIndex}
+            />
+          </Flex>
+        )) || []
+      ),
+    [props.voices, currentContentIndex, props.screenWidth]
+  );
+
+  const voicesContents = useMemo(
+    () => props.voices?.map((voice) => voice.content) || [],
+    [props.voices]
+  );
+
   return (
-    <StyledCenter display={props.display}>
+    <StyledCenter display={props.display} key={currentContentIndex}>
       <StyledCenter2>
         <Stack bg={theme.colors.backgroundHome} w={"100%"} h={"100%"}>
           {/* Topbar */}
@@ -129,12 +147,12 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
             color={"white"}
             overflow={"hidden"}
             direction={props.screenWidth <= 557 ? "column" : "row"}
+            justifyContent={"center"}
+            alignItems={"center"}
           >
             <Stack
-              w={props.screenWidth <= 557 ? "100%" : "15%"}
-              paddingLeft={"3%"}
+              w={props.screenWidth <= 557 ? "95%" : "15%"}
               paddingTop={"2%"}
-              marginRight={"1rem"}
               justifyContent={props.screenWidth <= 557 ? "center" : ""}
             >
               {voices}
@@ -176,9 +194,7 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
           </Flex>
         </Stack>
       </StyledCenter2>
-      <ExitCenter
-        onClick={() => props.toggleDisplay(props.overlayId)}
-      />
+      <ExitCenter onClick={() => props.toggleDisplay(props.overlayId)} />
     </StyledCenter>
   );
 };

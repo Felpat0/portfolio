@@ -12,7 +12,7 @@ type Props = {
   workingImage?: any;
   selected?: boolean;
   onClick?: any;
-  text?: string;
+  title?: string;
   screenHeight?: any;
   screenWidth?: any;
 };
@@ -21,17 +21,17 @@ export const SquareItem: React.FC<Props> = (props) => {
   const [opacity, setOpacity] = useState(0);
 
   let size = "45vh";
-  let textFlexSize = "5rem";
+  let titleFlexSize = "5rem";
 
   if (props.screenWidth <= 557) {
     size = "80vw";
   }
 
   let backgroundColor = "rgba(250, 250, 250, 0.015)";
-  let textVisibility = "hidden";
+  let titleVisibility = "hidden";
 
   if (props.backgroundColor) backgroundColor = props.backgroundColor;
-  if (props.text && opacity === 1) textVisibility = "visible";
+  if (props.title && opacity === 1) titleVisibility = "visible";
 
   if (!props.image)
     return (
@@ -41,11 +41,11 @@ export const SquareItem: React.FC<Props> = (props) => {
           fontSize={"2xl"}
           w={"100%"}
           /* @ts-ignore */
-          style={{ visibility: textVisibility }}
-          h={textFlexSize}
+          style={{ visibility: titleVisibility }}
+          h={titleFlexSize}
         >
           <Text textAlign={"center"} w={"100%"}>
-            {props.text ? props.text : "a"}
+            {props.title || ""}
           </Text>
         </Flex>
         <Flex
@@ -74,8 +74,8 @@ export const SquareItem: React.FC<Props> = (props) => {
           textAlign={"center"}
           w={"100%"}
           /* @ts-ignore */
-          style={{ visibility: textVisibility }}
-          h={textFlexSize}
+          style={{ visibility: titleVisibility }}
+          h={titleFlexSize}
           position={"relative"}
         >
           <Text
@@ -84,7 +84,7 @@ export const SquareItem: React.FC<Props> = (props) => {
             position={"absolute"}
             bottom={0}
           >
-            {props.text}
+            {props.title}
           </Text>
         </Flex>
         <Flex
@@ -146,8 +146,8 @@ export const SquareItem: React.FC<Props> = (props) => {
           textAlign={"center"}
           w={"100%"}
           /* @ts-ignore */
-          style={{ visibility: textVisibility }}
-          h={textFlexSize}
+          style={{ visibility: titleVisibility }}
+          h={titleFlexSize}
           position={"relative"}
         >
           <Text
@@ -156,7 +156,7 @@ export const SquareItem: React.FC<Props> = (props) => {
             position={"absolute"}
             bottom={0}
           >
-            {props.text}
+            {props.title}
           </Text>
         </Flex>
         <Flex
