@@ -102,7 +102,20 @@ export const overlays = [
     options: [
       {
         title: "Teledolomiti",
-        text: <></>,
+        text: (
+          <Text fontSize={"lg"} textAlign={"center"}>
+            <strong>Teledolomiti</strong> is a webapp developed in{" "}
+            <strong>NextJS</strong> (Typescript); it a streaming platform made
+            of an italian broadcaster.
+            <br />
+            The code is not publically available, but the website can be
+            accessed on{" "}
+            <a href={"https://www.tele-dolomiti.it/"}>
+              <strong>TeleDolomiti</strong>
+            </a>
+            .
+          </Text>
+        ),
         images: [SuperbonusMobile, SuperbonusDesktop],
       },
       {
