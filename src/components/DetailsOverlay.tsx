@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import {
   Center,
   CloseButton,
@@ -28,13 +28,11 @@ type Props = {
 
 export const DetailsOverlay: React.FC<Props> = (props) => {
   const [currentContentIndex, setCurrentContentIndex] = useState(0);
-  let voices: any[] = [];
-  let voicesContents: any[] = [];
 
-  props.voices?.map((voice, index) => {
-    if (voice) {
-      voices.push(
-        <Flex w={"100%"}>
+  const voices = useMemo(
+    () =>
+      props.voices?.map((voice, index) => (
+        <Flex w={"100%"} key={index}>
           <DetailsOverlayVoice
             text={voice.title}
             onClick={() => {
@@ -43,14 +41,17 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
             isActive={index === currentContentIndex}
           />
         </Flex>
-      );
-      voicesContents.push(voice.content);
-    }
-    return voice;
-  });
-  //Add fade in animation
+      )) || [],
+    [props.voices, currentContentIndex]
+  );
+
+  const voicesContents = useMemo(
+    () => props.voices?.map((voice) => voice.content) || [],
+    [props.voices]
+  );
+
   return (
-    <StyledCenter display={props.display}>
+    <StyledCenter display={props.display} key={currentContentIndex}>
       <StyledCenter2>
         <Stack bg={theme.colors.backgroundHome} w={"100%"} h={"100%"}>
           {/* Topbar */}
@@ -176,9 +177,7 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
           </Flex>
         </Stack>
       </StyledCenter2>
-      <ExitCenter
-        onClick={() => props.toggleDisplay(props.overlayId)}
-      />
+      <ExitCenter onClick={() => props.toggleDisplay(props.overlayId)} />
     </StyledCenter>
   );
 };
