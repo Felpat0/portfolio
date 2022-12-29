@@ -3,6 +3,8 @@ import webDevSquare from "./../assets/squares/webdev.png";
 import videogamesSquare from "./../assets/squares/videogames.png";
 import mlSquare from "./../assets/squares/machineLearning.png";
 
+import profileIcon from "./../assets/icons/profileIcon.jpg";
+
 import CodeIcon from "./../assets/icons/code.png";
 import ReactIcon from "./../assets/icons/react.svg";
 import JestIcon from "./../assets/icons/jest.png";
@@ -31,6 +33,8 @@ export const overlays = [
     subtitle: "Currently working | React Developer",
     icon: sisalSquare,
     image: sisalSquare,
+    working: true,
+    workingImage: profileIcon,
     options: [
       {
         title: "Sisal",

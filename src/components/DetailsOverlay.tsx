@@ -148,7 +148,7 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
             overflow={"hidden"}
             direction={props.screenWidth <= 557 ? "column" : "row"}
             justifyContent={"center"}
-            alignItems={"center"}
+            alignItems={props.screenWidth <= 557 ? "center" : ""}
           >
             <Stack
               w={props.screenWidth <= 557 ? "95%" : "15%"}
