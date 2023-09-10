@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.b8c321ea.chunk.css",
-    "main.js": "/portfolio/static/js/main.9db7b8cc.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.9db7b8cc.chunk.js.map",
+    "main.js": "/portfolio/static/js/main.a6fe4f1f.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.a6fe4f1f.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.17062e21.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.17062e21.js.map",
     "static/css/2.d4115035.chunk.css": "/portfolio/static/css/2.d4115035.chunk.css",
-    "static/js/2.ccca9cda.chunk.js": "/portfolio/static/js/2.ccca9cda.chunk.js",
-    "static/js/2.ccca9cda.chunk.js.map": "/portfolio/static/js/2.ccca9cda.chunk.js.map",
+    "static/js/2.38954080.chunk.js": "/portfolio/static/js/2.38954080.chunk.js",
+    "static/js/2.38954080.chunk.js.map": "/portfolio/static/js/2.38954080.chunk.js.map",
     "static/js/3.6c07c899.chunk.js": "/portfolio/static/js/3.6c07c899.chunk.js",
     "static/js/3.6c07c899.chunk.js.map": "/portfolio/static/js/3.6c07c899.chunk.js.map",
     "index.html": "/portfolio/index.html",
     "static/css/2.d4115035.chunk.css.map": "/portfolio/static/css/2.d4115035.chunk.css.map",
     "static/css/main.b8c321ea.chunk.css.map": "/portfolio/static/css/main.b8c321ea.chunk.css.map",
-    "static/js/2.ccca9cda.chunk.js.LICENSE.txt": "/portfolio/static/js/2.ccca9cda.chunk.js.LICENSE.txt",
+    "static/js/2.38954080.chunk.js.LICENSE.txt": "/portfolio/static/js/2.38954080.chunk.js.LICENSE.txt",
     "static/media/code.288e2a5f.png": "/portfolio/static/media/code.288e2a5f.png",
     "static/media/dcgan.a7d6f7cd.png": "/portfolio/static/media/dcgan.a7d6f7cd.png",
     "static/media/github.01b2e5ff.svg": "/portfolio/static/media/github.01b2e5ff.svg",
@@ -23,6 +23,7 @@
     "static/media/kuffy.56b9226f.png": "/portfolio/static/media/kuffy.56b9226f.png",
     "static/media/machineLearning.581cd7d7.png": "/portfolio/static/media/machineLearning.581cd7d7.png",
     "static/media/mailOrange.a6122595.svg": "/portfolio/static/media/mailOrange.a6122595.svg",
+    "static/media/mostaza.605ec26a.svg": "/portfolio/static/media/mostaza.605ec26a.svg",
     "static/media/notes.7b2237f4.png": "/portfolio/static/media/notes.7b2237f4.png",
     "static/media/oltre.0b6a7604.png": "/portfolio/static/media/oltre.0b6a7604.png",
     "static/media/pacman.e809f307.png": "/portfolio/static/media/pacman.e809f307.png",
@@ -40,8 +41,8 @@
   "entrypoints": [
     "static/js/runtime-main.17062e21.js",
     "static/css/2.d4115035.chunk.css",
-    "static/js/2.ccca9cda.chunk.js",
+    "static/js/2.38954080.chunk.js",
     "static/css/main.b8c321ea.chunk.css",
-    "static/js/main.9db7b8cc.chunk.js"
+    "static/js/main.a6fe4f1f.chunk.js"
   ]
 }
