@@ -9,8 +9,7 @@ import wifiIcon from "./../assets/icons/wifi.png";
 type Props = {
   height: any;
   width: any;
-  toggleOverlay?: any;
-  overlayId?: number;
+  openBio?: any;
 };
 
 export const TopBar: React.FC<Props> = (props) => {
@@ -57,7 +56,7 @@ export const TopBar: React.FC<Props> = (props) => {
         height={iconSize}
         imgWidth={iconSize}
         imgHeight={iconSize}
-        onClick={() => props.toggleOverlay(props.overlayId)}
+        onClick={props.openBio}
       />
       <Text fontSize={fontSize} color={"white"} paddingLeft={"2vw"}>
         Federico Cattini

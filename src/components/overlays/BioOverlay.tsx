@@ -82,7 +82,7 @@ export const BioOverlay: React.FC<Props> = (props) => {
                 color={theme.colors.lightGrey}
                 paddingLeft={props.screenWidth <= 557 ? "1rem" : "2rem"}
               >
-                Front-End Developer
+                Front-End Engineer
               </Text>
               <Center
                 h={"0.2rem"}
@@ -127,9 +127,9 @@ export const BioOverlay: React.FC<Props> = (props) => {
               I'm a <strong>Software Developer</strong> who is also passionate
               about <strong>Mathematical Analysis</strong>,{" "}
               <strong>Geometry</strong> and <strong>Algebra</strong>. <br />
-              <br /> I've started coding at the age of 12, coding is my passion
-              and I've studied it at high school and at the University of Roma
-              Tor Vergata, I'm currently working at Sisal as a Front-End Developer.
+              <br /> I've started coding at the age of 12, it is my passion and
+              I've studied it at high school and at the University of Roma Tor
+              Vergata, I'm currently working at Sisal as a Front-End Engineer.
             </Text>
             <Center h={"0.2rem"} paddingTop={"1rem"}>
               <Flex

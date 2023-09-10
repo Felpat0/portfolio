@@ -15,7 +15,7 @@ export const Activities: React.FC<Props> = (props) => {
       </Flex>
       {activities.map((activity) => (
         <Stack w={"100%"}>
-          <Center h={"0.2rem"} w={"80%"}>
+          <Center h={"0.2rem"} w={"70%"}>
             <Flex h={"0.01rem"} w={"100%"} bg={theme.colors.midGrey} />
           </Center>
           <Flex w={"100%"}>

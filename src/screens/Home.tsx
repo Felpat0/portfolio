@@ -18,12 +18,13 @@ import { fadeIn } from "react-animations";
 import styled, { keyframes } from "styled-components";
 import { overlays } from "../config/overlays";
 import { Overlay } from "../components/Overlay";
+import { BioOverlay } from "../components/overlays/BioOverlay";
 
 const fadeInAnimation = keyframes`${fadeIn}`;
 
 export const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [currentOverlay, setCurrentOverlay] = useState(-1);
+  const [currentOverlay, setCurrentOverlay] = useState<number | "bio">(-1);
   const [mouseDownTime, setMouseDownTime] = useState(0);
   const [width, setWidth] = useState(
     window.innerWidth > 0 ? window.innerWidth : window.screen.width
@@ -57,9 +58,10 @@ export const Home: React.FC = () => {
   );
 
   const toggleOverlay = useCallback(
-    (overlayId: number) => {
-      if (overlayId !== null && overlayId !== undefined) {
+    (overlayId: number | "bio") => {
+      if (overlayId || overlayId === 0) {
         if (currentOverlay !== -1) setCurrentOverlay(-1);
+        else if (overlayId === "bio") setCurrentOverlay("bio");
         else setCurrentOverlay(overlayId);
       } else setCurrentOverlay(-1);
     },
@@ -102,8 +104,7 @@ export const Home: React.FC = () => {
           <TopBar
             height={height}
             width={width}
-            toggleOverlay={toggleOverlay}
-            overlayId={4}
+            openBio={() => toggleOverlay("bio")}
           />
           {overlays.map((overlay, index) => (
             <Overlay
@@ -116,6 +117,18 @@ export const Home: React.FC = () => {
               key={index}
             />
           ))}
+          {currentOverlay === "bio" ? (
+            <BioOverlay
+              screenHeight={height}
+              screenWidth={width}
+              toggleDisplay={toggleOverlay}
+              overlayId={4}
+              icon={profileIcon}
+              title={"Federico Cattini"}
+            />
+          ) : (
+            <></>
+          )}
         </Flex>
         <Flex h={"60vh"} w={"100%"} paddingTop={width <= 557 ? "0vh" : "3vh"}>
           <ScrollableContainer>

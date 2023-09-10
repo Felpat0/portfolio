@@ -7,7 +7,7 @@ export const activities = [
   {
     image: sisalSquare,
     title: "Sisal",
-    subtitle: "Front-End Developer (2022/07 - currently working)",
+    subtitle: "Front-End Engineer (2022/07 - currently working)",
   },
   {
     image: mostazaSquare,
