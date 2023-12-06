@@ -1,5 +1,6 @@
 import sisalSquare from "./../assets/squares/sisal.png";
 import webDevSquare from "./../assets/squares/webdev.png";
+import mobileDevSquare from "./../assets/squares/mobiledev.png";
 import videogamesSquare from "./../assets/squares/videogames.png";
 import mlSquare from "./../assets/squares/machineLearning.png";
 
@@ -22,6 +23,11 @@ import GoGrandpaScreen from "./../assets/overlays/goGrandpa.jpg";
 import KuffyScreen from "./../assets/overlays/kuffy.png";
 import OltreScreen from "./../assets/overlays/oltre.png";
 import NotesScreen from "./../assets/overlays/notes.png";
+
+import NotesAppScreen1 from "./../assets/overlays/NotesApp1.jpg";
+import NotesAppScreen2 from "./../assets/overlays/NotesApp2.jpg";
+import NotesAppScreen3 from "./../assets/overlays/NotesApp3.jpg";
+import NotesAppScreen4 from "./../assets/overlays/NotesApp4.jpg";
 
 import DcGANScreen from "./../assets/overlays/dcgan.png";
 
@@ -216,6 +222,78 @@ export const overlays = [
           </Text>
         ),
         images: [OltreScreen],
+      },
+    ],
+  },
+  {
+    title: "Mobile Projects",
+    icon: mobileDevSquare,
+    image: mobileDevSquare,
+    options: [
+      {
+        title: "Notes-app",
+        text: (
+          <Text fontSize={"lg"} textAlign={"center"}>
+            <strong>Notes</strong> is an app developed in{" "}
+            <strong>React Native</strong> (Typescript) for writing, organizing
+            and managing notes and todos.
+            <br />
+            It also features a <strong>rich text editor</strong>, a{" "}
+            <strong>recurrence system</strong> for notes and a{" "}
+            <strong>Firebase backend</strong> that allows users to use the app
+            both offline and online. The data is automatically synchronized when
+            the device is online.
+            <br />
+            This app is being developed in substitution of "Notes" (the
+            progressive webapp in the "Web Projects" section).
+            <br />
+            The code is available on{" "}
+            <a href={"https://github.com/Felpat0/notes-app"}>
+              <strong>GitHub</strong>
+            </a>
+            .
+          </Text>
+        ),
+        images: [
+          NotesAppScreen1,
+          NotesAppScreen2,
+          NotesAppScreen3,
+          NotesAppScreen4,
+        ],
+      },
+      {
+        title: "goGrandpa",
+        text: (
+          <>
+            <div>
+              <Text fontSize={"lg"} textAlign={"center"}>
+                <strong>goGrandpa</strong> is an Android Application developed
+                using <strong>Apache Cordova</strong> in <strong>HTML</strong>,{" "}
+                <strong>CSS</strong> and <strong>Javascript</strong>.
+                <br />
+                The backend has been built using a <strong>
+                  PHP server
+                </strong>{" "}
+                (which is also able to send emails) and a <strong>MySQL</strong>{" "}
+                database.
+                <br />
+                <br />
+                The app allows elderly persons to request services that are
+                provided by younger users.
+                <br />
+                This project has been developed in team, I've built the backend
+                and also worked on the Javascript part.
+                <br />
+                The code is available on{" "}
+                <a href={"https://github.com/Felpat0/goGrandpa_local"}>
+                  <strong>GitHub</strong>
+                </a>
+                .
+              </Text>
+            </div>
+          </>
+        ),
+        images: [GoGrandpaScreen],
       },
     ],
   },

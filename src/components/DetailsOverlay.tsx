@@ -170,7 +170,7 @@ export const DetailsOverlay: React.FC<Props> = (props) => {
             <Flex
               w={props.screenWidth <= 557 ? "100%" : "80%"}
               padding={"1%"}
-              overflowY={"scroll"}
+              overflowY={"auto"}
             >
               {voicesContents[currentContentIndex]}
             </Flex>

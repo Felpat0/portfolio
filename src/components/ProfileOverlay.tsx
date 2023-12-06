@@ -29,29 +29,9 @@ type Props = {
 
 export const ProfileOverlay: React.FC<Props> = (props) => {
   const [currentContentIndex, setCurrentContentIndex] = useState(0);
-  let voices: any[] = [];
-  let voicesContents: any[] = [];
   let iconSize = "10vh";
 
   if (props.screenWidth <= 557) iconSize = "3rem";
-
-  props.voices?.map((voice, index) => {
-    if (voice) {
-      voices.push(
-        <Flex w={"100%"}>
-          <DetailsOverlayVoice
-            text={voice.title}
-            onClick={() => {
-              setCurrentContentIndex(index);
-            }}
-            isActive={index === currentContentIndex}
-          />
-        </Flex>
-      );
-      voicesContents.push(voice.content);
-    }
-    return voice;
-  });
 
   return (
     <StyledCenter display={props.display}>
@@ -138,7 +118,17 @@ export const ProfileOverlay: React.FC<Props> = (props) => {
               marginRight={"1rem"}
               justifyContent={props.screenWidth <= 557 ? "center" : ""}
             >
-              {voices}
+              {props.voices?.map((voice, index) => (
+                <Flex w={"100%"} key={index + (voice?.title || "")}>
+                  <DetailsOverlayVoice
+                    text={voice.title}
+                    onClick={() => {
+                      setCurrentContentIndex(index);
+                    }}
+                    isActive={index === currentContentIndex}
+                  />
+                </Flex>
+              ))}
             </Stack>
             <Center
               h={props.screenWidth <= 557 ? "" : "100%"}
@@ -153,9 +143,9 @@ export const ProfileOverlay: React.FC<Props> = (props) => {
             <Flex
               w={props.screenWidth <= 557 ? "100%" : "80%"}
               padding={"1%"}
-              overflowY={"scroll"}
+              overflowY={"auto"}
             >
-              {voicesContents[currentContentIndex]}
+              {props.voices && props.voices[currentContentIndex].content}
             </Flex>
           </Flex>
           <Center

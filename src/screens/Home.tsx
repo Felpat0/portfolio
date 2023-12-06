@@ -24,7 +24,7 @@ const fadeInAnimation = keyframes`${fadeIn}`;
 
 export const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [currentOverlay, setCurrentOverlay] = useState<number | "bio">(-1);
+  const [currentOverlayId, setCurrentOverlayId] = useState<number | "bio">(-1);
   const [mouseDownTime, setMouseDownTime] = useState(0);
   const [width, setWidth] = useState(
     window.innerWidth > 0 ? window.innerWidth : window.screen.width
@@ -47,25 +47,30 @@ export const Home: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const currentOverlay =
+    typeof currentOverlayId === "number"
+      ? overlays[currentOverlayId]
+      : undefined;
+
   const onSquareClick = useCallback(
     (overlayId: number) => {
       if (Date.now() - mouseDownTime < 200) {
-        if (currentOverlay !== -1) setCurrentOverlay(-1);
-        else setCurrentOverlay(overlayId);
+        if (currentOverlayId !== -1) setCurrentOverlayId(-1);
+        else setCurrentOverlayId(overlayId);
       }
     },
-    [mouseDownTime, currentOverlay]
+    [mouseDownTime, currentOverlayId]
   );
 
   const toggleOverlay = useCallback(
     (overlayId: number | "bio") => {
       if (overlayId || overlayId === 0) {
-        if (currentOverlay !== -1) setCurrentOverlay(-1);
-        else if (overlayId === "bio") setCurrentOverlay("bio");
-        else setCurrentOverlay(overlayId);
-      } else setCurrentOverlay(-1);
+        if (currentOverlayId !== -1) setCurrentOverlayId(-1);
+        else if (overlayId === "bio") setCurrentOverlayId("bio");
+        else setCurrentOverlayId(overlayId);
+      } else setCurrentOverlayId(-1);
     },
-    [currentOverlay]
+    [currentOverlayId]
   );
 
   if (isLoading) {
@@ -80,6 +85,7 @@ export const Home: React.FC = () => {
       </Center>
     );
   }
+
   return (
     <Stack
       w={"100%"}
@@ -106,18 +112,20 @@ export const Home: React.FC = () => {
             width={width}
             openBio={() => toggleOverlay("bio")}
           />
-          {overlays.map((overlay, index) => (
+          {currentOverlay && (
             <Overlay
-              {...overlay}
-              overlayId={index}
-              display={currentOverlay === index ? "block" : "none"}
+              {...currentOverlay}
+              overlayId={
+                typeof currentOverlayId === "number"
+                  ? currentOverlayId
+                  : undefined
+              }
               screenHeight={height}
               screenWidth={width}
               toggleDisplay={toggleOverlay}
-              key={index}
             />
-          ))}
-          {currentOverlay === "bio" ? (
+          )}
+          {currentOverlayId === "bio" ? (
             <BioOverlay
               screenHeight={height}
               screenWidth={width}
@@ -140,7 +148,7 @@ export const Home: React.FC = () => {
                 onClick={() => onSquareClick(index)}
                 screenHeight={height}
                 screenWidth={width}
-                key={index}
+                key={index + overlay.title}
               />
             ))}
 
