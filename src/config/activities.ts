@@ -23,7 +23,7 @@ export const activities = [
   {
     image: outplayedLogo,
     title: "Outplayed",
-    subtitle: "Columnist (2019/09 - 2017/11)",
+    subtitle: "Columnist (2017/11 - 2019/09)",
     bg: "white",
   },
 ];
